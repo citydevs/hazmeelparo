@@ -7,6 +7,10 @@ import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.citydevs.hazmeelparo.R;
+import com.citydevs.hazmeelparo.utils.Utils;
 
 public class EditTextBackEvent extends EditText {
 
@@ -34,24 +38,21 @@ public class EditTextBackEvent extends EditText {
 	@Override
 	public boolean onKeyPreIme(int keyCode, KeyEvent event) {
 	  if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
-		  Activity act=(Activity)context;
-		  InputMethodManager imm = (InputMethodManager)context.getSystemService(
-			      Context.INPUT_METHOD_SERVICE);
-			imm.hideSoftInputFromWindow(EditTextBackEvent.this.getWindowToken(), 0);
-		  /*if (countStart >= 2) {
+		 
+		  if (countStart >= 2) {
 				countStart = 0;
-				Activity act=(Activity)context;
-				act.onBackPressed();
-				
-				
+				 Activity act=(Activity)context;
+					act.onBackPressed();
 			} else {
 				countStart += 1;
 				if (countTimer) {
 					Utils.Toast((Activity)context, getResources().getString(R.string.atras_salir), Toast.LENGTH_SHORT);
 					countTimer = false;
 					handler_time.postDelayed(runnable, 10000);
+					InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+				    imm.hideSoftInputFromWindow(EditTextBackEvent.this.getWindowToken(), 0);
 				}
-			}*/
+			}
 	    return true;  
 	  }
 	  return super.dispatchKeyEvent(event);

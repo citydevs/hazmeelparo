@@ -1,23 +1,23 @@
 package com.citydevs.hazmeelparo.contact;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.citydevs.hazmeelparo.InstructionsActivity;
 import com.citydevs.hazmeelparo.InstructionsActivity.OnListenerCambiarTexto;
 import com.citydevs.hazmeelparo.R;
+import com.citydevs.hazmeelparo.gcm.GCM;
 import com.citydevs.hazmeelparo.utils.Utils;
+import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 /**
  * 
@@ -36,6 +36,9 @@ public class ContactoActivity extends View implements OnListenerCambiarTexto {
 	private View view;
 	private static OnListenerOpenContact onListenerOpenContact;
 	
+	//GCM
+	private GoogleCloudMessaging gcm;
+	private GCM mGCM;
 	
 	public ContactoActivity(Activity context) {
 		super(context);
@@ -79,6 +82,15 @@ public void init(){
 				if(validaEditText()){
 					new Utils(context).setPreferenciasContacto(new String[]{et_telefono.getText().toString(),et_mensaje_emergencia.getText().toString()});
 					Utils.Toast(context, "Contacto guardado", Toast.LENGTH_SHORT);
+					
+					 mGCM= new GCM(context);
+			            Log.i("*****************", mGCM.checkPlayServices()+"");
+					  if (mGCM.checkPlayServices()) {
+				            gcm = GoogleCloudMessaging.getInstance(context);
+				            mGCM.registerInBackground(gcm);       
+				        }
+					
+					//context.startActivity(new Intent(context,HazmeElParoActivity.class));
 				}
 			}
 		});
@@ -114,12 +126,12 @@ public void init(){
 		}
 		
 		
-		
-
-		
+				 
+		InputMethodManager imm = (InputMethodManager)context.getSystemService(
+		Context.INPUT_METHOD_SERVICE);
+		//txtName is a reference of an EditText Field
+		imm.hideSoftInputFromWindow(et_telefono.getWindowToken(), 0);
 	
-
-				
 	}
 	
 	

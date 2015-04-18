@@ -69,8 +69,8 @@ public class InstructionsActivity extends Activity implements OnListenerOpenCont
 
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.pager);
-		mViewPager.setAdapter(mSectionsPagerAdapter);		
-
+		mViewPager.setAdapter(mSectionsPagerAdapter);	
+		
 	}
 	
 
