@@ -5,25 +5,31 @@ import java.util.Locale;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
+import com.citydevs.hazmeelparo.contact.ContactoActivity;
+import com.citydevs.hazmeelparo.contact.ContactoActivity.OnListenerOpenContact;
 import com.citydevs.hazmeelparo.utils.Utils;
 
-public class InstructionsActivity extends Activity {
+public class InstructionsActivity extends Activity implements OnListenerOpenContact{
 	private static Point p;
 	private static int index_view = 0;
+	private String telefono;
+	private static OnListenerCambiarTexto onListenerCambiarTexto;
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
 	 * fragments for each of the sections. We use a {@link FragmentPagerAdapter}
@@ -36,7 +42,7 @@ public class InstructionsActivity extends Activity {
 	/**
 	 * The {@link ViewPager} that will host the section contents.
 	 */
-	ViewPager mViewPager;
+	static ViewPager mViewPager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,8 @@ public class InstructionsActivity extends Activity {
 
 		setContentView(R.layout.activity_instructions);
 		p = Utils.getTamanoPantalla(InstructionsActivity.this);
+		
+		ContactoActivity.setOnClickOpenContactListener(this); 
 
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the activity.
@@ -54,9 +62,10 @@ public class InstructionsActivity extends Activity {
 
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.pager);
-		mViewPager.setAdapter(mSectionsPagerAdapter);
+		mViewPager.setAdapter(mSectionsPagerAdapter);		
 
 	}
+	
 
 	/**
 	 * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -93,8 +102,7 @@ public class InstructionsActivity extends Activity {
 	/**
 	 * A placeholder fragment containing a simple view.
 	 */
-	public static class PlaceholderFragment extends Fragment {
-
+	public static class PlaceholderFragment extends Fragment implements OnClickListener {
 		/**
 		 * The fragment argument representing the section number for this
 		 * fragment.
@@ -129,14 +137,72 @@ public class InstructionsActivity extends Activity {
 				ImageView instrucciones_iv_logo = (ImageView) rootView.findViewById(R.id.instrucciones_iv_logo);
 				instrucciones_iv_logo.setLayoutParams(lp);
 				
+				Button instrucciones_btn_siguiente = (Button) rootView.findViewById(R.id.instrucciones_btn_siguiente);
+				instrucciones_btn_siguiente.setOnClickListener(this);
+				
 			} else if (index_view == 1) {
-				rootView = inflater.inflate(
-						R.layout.fragent_instructions_config, container, false);
+				ContactoActivity contacto = new ContactoActivity(getActivity());
+
+				rootView = contacto.getView();
+				
 				index_view = 0;
 			}
 
 			return rootView;
 		}
+		
+		@Override
+		public void onClick(View v) {
+			mViewPager.setCurrentItem(1);
+		}
+		 
+	}
+	
+	
+	public void set_contact(){
+		onListenerCambiarTexto.onListenerCambiarTexto(telefono);
+	}
+	
+	public void open_contact(){
+		Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI); 
+		startActivityForResult(intent, 0);
+	}
+	
+	
+	
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == 0) {	
+			telefono = new Utils(InstructionsActivity.this).getContactInfo(data,0);
+			set_contact();
+		}
+ 		
+	}
+	
+	/**
+	 * Interface que comunica la pagina con la actividad 
+	 * @author mikesaurio
+	 *
+	 */
+	 public interface OnListenerCambiarTexto
+	    {
+	        void onListenerCambiarTexto(String telefono);
+	    }
+	
+	 /**
+	  * escucha para poder cambair el texto de la pagina 2
+	  * @param listener
+	  */
+	public static void setOnClickCambiarTextoListener( OnListenerCambiarTexto listener)
+	{
+	
+		onListenerCambiarTexto = listener;
+	}
+
+	@Override
+	public void onListenerOpenContact() {
+		open_contact();
 	}
 
 }

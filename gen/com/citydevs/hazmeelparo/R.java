@@ -16,6 +16,7 @@ public final class R {
         public static final int color_gris=0x7f040002;
         public static final int color_negro=0x7f040003;
         public static final int color_rojo=0x7f040001;
+        public static final int color_transparente=0x7f040005;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -36,41 +37,81 @@ public final class R {
         public static final int ic_launcher_numero_1=0x7f020004;
         public static final int ic_launcher_numero_2=0x7f020005;
         public static final int ic_launcher_numero_3=0x7f020006;
-        public static final int logo_hazme_el_paro=0x7f020007;
-        public static final int selector_btn_generic=0x7f020008;
-        public static final int selector_txt_boton_redondo=0x7f020009;
+        public static final int ic_launcher_perfil=0x7f020007;
+        public static final int ic_launcher_telefono=0x7f020008;
+        public static final int logo_hazme_el_paro=0x7f020009;
+        public static final int marco=0x7f02000a;
+        public static final int selector_btn_generic=0x7f02000b;
+        public static final int selector_edittext=0x7f02000c;
+        public static final int selector_edittext_focused=0x7f02000d;
+        public static final int selector_edittext_pressed=0x7f02000e;
+        public static final int selector_txt_boton_redondo=0x7f02000f;
+        public static final int shape_toast=0x7f020010;
     }
     public static final class id {
-        public static final int button1=0x7f08000f;
-        public static final int imageView1=0x7f080002;
-        public static final int imageView3=0x7f080008;
-        public static final int imageView4=0x7f08000b;
-        public static final int imageView5=0x7f08000d;
-        public static final int instrucciones_iv_logo=0x7f080004;
-        public static final int linearLayout1=0x7f080007;
-        public static final int linearLayout2=0x7f08000a;
-        public static final int linearLayoutimagen=0x7f080003;
-        public static final int pager=0x7f080000;
-        public static final int section_label=0x7f080001;
-        public static final int textView1=0x7f080005;
-        public static final int textView2=0x7f080006;
-        public static final int textView3=0x7f080009;
-        public static final int textView4=0x7f08000c;
-        public static final int textView5=0x7f08000e;
+        public static final int btn_eliminar_contacto=0x7f080001;
+        public static final int dialogo_contacto_lv_contactos=0x7f080010;
+        public static final int dialogo_contacto_tv_subtitulo=0x7f08000f;
+        public static final int imageView1=0x7f080009;
+        public static final int imageView3=0x7f08000b;
+        public static final int imageView4=0x7f080016;
+        public static final int imageView5=0x7f080018;
+        public static final int instrucciones_btn_siguiente=0x7f08001a;
+        public static final int instrucciones_iv_logo=0x7f080013;
+        public static final int linearLayout1=0x7f08000a;
+        public static final int linearLayout2=0x7f080015;
+        public static final int linearLayoutimagen=0x7f080012;
+        public static final int mitaxiregistermanually_ll_contactos=0x7f080003;
+        public static final int mitaxiregistermanually_ll_container_infouser_2=0x7f080005;
+        public static final int mitaxiregistermanually_sv_container_infouser_emer=0x7f080000;
+        public static final int mitaxiregistermanually_tv_label=0x7f08000d;
+        public static final int my_group=0x7f08001b;
+        public static final int pager=0x7f08000e;
+        public static final int registro_btn_contacto=0x7f080007;
+        public static final int registro_btn_guardar=0x7f080002;
+        public static final int registro_et_mensaje_emergencia=0x7f080008;
+        public static final int registro_et_telefono=0x7f080006;
+        public static final int row_lista_tv_info=0x7f08001c;
+        public static final int section_label=0x7f080011;
+        public static final int textView1=0x7f080004;
+        public static final int textView2=0x7f080014;
+        public static final int textView3=0x7f08000c;
+        public static final int textView4=0x7f080017;
+        public static final int textView5=0x7f080019;
+        public static final int texttoast=0x7f08001e;
+        public static final int toastcustom=0x7f08001d;
     }
     public static final class layout {
-        public static final int activity_instructions=0x7f030000;
-        public static final int fragent_instructions_config=0x7f030001;
-        public static final int fragment_instructions=0x7f030002;
+        public static final int activity_contacto=0x7f030000;
+        public static final int activity_instructions=0x7f030001;
+        public static final int dialogo_contactos=0x7f030002;
+        public static final int fragent_instructions_config=0x7f030003;
+        public static final int fragment_instructions=0x7f030004;
+        public static final int row_lista=0x7f030005;
+        public static final int toastcustom=0x7f030006;
     }
     public static final class string {
         public static final int app_name=0x7f060000;
+        public static final int atras_salir=0x7f060014;
         /**  Bottons 
          */
-        public static final int btn_continuar=0x7f060005;
+        public static final int btn_continuar=0x7f060012;
+        public static final int eliminar_contacto=0x7f060008;
         /**  Dialogos 
          */
-        public static final int espere=0x7f060006;
+        public static final int espere=0x7f060013;
+        public static final int instrucciones_contacto=0x7f060009;
+        public static final int mensaje_emergencia=0x7f060006;
+        public static final int mensaje_emergencia_hint=0x7f060007;
+        public static final int registro_btn_guardar=0x7f06000a;
+        public static final int registro_correo_incorrecto=0x7f060011;
+        public static final int registro_correo_vacio=0x7f06000e;
+        public static final int registro_et_telefono=0x7f060005;
+        public static final int registro_selecciona_uno=0x7f06000c;
+        public static final int registro_telefono_incorrecto=0x7f060010;
+        public static final int registro_telefono_largo=0x7f06000f;
+        public static final int registro_telefono_vacio=0x7f06000d;
+        public static final int registro_titulo=0x7f06000b;
         public static final int texto_instrucciones_uno=0x7f060001;
         public static final int texto_numero_1=0x7f060002;
         public static final int texto_numero_2=0x7f060003;
