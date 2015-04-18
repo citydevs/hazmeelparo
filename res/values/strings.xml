@@ -23,8 +23,9 @@ sexual y la violencia de genero hacia las mujeres en el transporte público, en 
 
     <!-- Bottons -->
     <string name="btn_continuar">Continuar</string>
-        <string name="btn_reporta">Reporta</string>
-            <string name="btn_conecta">Conecta</string>
+    <string name="btn_reporta">Reporta</string>
+    <string name="btn_conecta">Conecta</string>
+    <string name="dialogo_btn_aceptar">Aceptar</string>
 
     <!-- Dialogos -->
     <string name="espere">Espere por favor</string>
@@ -37,5 +38,8 @@ sexual y la violencia de genero hacia las mujeres en el transporte público, en 
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
+    <string name="problemas_titulo">¿Quién está teniendo problemas?</string>
+    <string name="notificar_chofer_familia">Gracias por reportar, hemos notificado al centro de mando y a tu contacto de seguridad.</string>
+    <string name="notificar_chofer">Gracias por reportar, hemos notificado al centro de mando.</string>
 
 </resources>
