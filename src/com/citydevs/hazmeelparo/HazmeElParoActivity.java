@@ -207,10 +207,10 @@ public class HazmeElParoActivity extends Activity implements
 	public  Dialog showDialogQuienTieneProblemas() {
 	
 		
-		ActionItem addItem      = new ActionItem(TOCO, "Mirada", getResources().getDrawable(R.drawable.ic_launcher));
-        ActionItem acceptItem   = new ActionItem(VERBAL, "AgresiónVerbal", getResources().getDrawable(R.drawable.ic_launcher));
-        ActionItem uploadItem   = new ActionItem(MIRO, "Tocamiento", getResources().getDrawable(R.drawable.ic_launcher));
-        ActionItem exhibicionismotItem   = new ActionItem(EXCIVO, "Exhibicionísmo", getResources().getDrawable(R.drawable.ic_launcher));
+		ActionItem addItem      = new ActionItem(TOCO, "Mirada\nLasciba", getResources().getDrawable(R.drawable.ic_launcher_tocar));
+        ActionItem acceptItem   = new ActionItem(VERBAL, "Agresión\nVerbal", getResources().getDrawable(R.drawable.ic_launcher_agredir));
+        ActionItem uploadItem   = new ActionItem(MIRO, "Tocarmiento", getResources().getDrawable(R.drawable.ic_launcher_mirar));
+        ActionItem exhibicionismotItem   = new ActionItem(EXCIVO, "Exhibición\nSexual", getResources().getDrawable(R.drawable.ic_launcher_excibir));
         uploadItem.setSticky(true);
 
         mQuickAction  = new QuickAction(activity);
