@@ -46,6 +46,15 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/reporte_yo"
                     android:src="@drawable/reporte_yo" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Yo"
+                    android:textColor="@color/color_negro"
+                    android:textSize="32sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -61,6 +70,15 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/reporte_alguienmas"
                     android:src="@drawable/reporte_alguienmas" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Otro"
+                    android:textColor="@color/color_negro"
+                    android:textSize="32sp" />
             </LinearLayout>
         </LinearLayout>
 

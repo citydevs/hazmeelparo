@@ -12,7 +12,6 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,6 +23,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.citydevs.hazmeelparo.popup.ActionItem;
+import com.citydevs.hazmeelparo.popup.QuickAction;
 import com.citydevs.hazmeelparo.splash.SplashActivity;
 import com.citydevs.hazmeelparo.utils.Utils;
 
@@ -60,6 +61,14 @@ public class HazmeElParoActivity extends Activity implements
 	private static LinearLayout ll_quien;
 	private static LinearLayout ll_enviando_mensaje;
 	private static LinearLayout ll_reporte_hecho;
+	
+	
+	//Dialogo de emergencia
+	private static final int TOCO = 1;
+    private static final int MIRO = 2;
+    private static final int VERBAL = 3;
+    private static final int EXCIVO = 4;
+    static QuickAction mQuickAction;
 
 
 	@Override
@@ -197,6 +206,20 @@ public class HazmeElParoActivity extends Activity implements
 
 	public  Dialog showDialogQuienTieneProblemas() {
 	
+		
+		ActionItem addItem      = new ActionItem(TOCO, "Mirada", getResources().getDrawable(R.drawable.ic_launcher));
+        ActionItem acceptItem   = new ActionItem(VERBAL, "AgresiónVerbal", getResources().getDrawable(R.drawable.ic_launcher));
+        ActionItem uploadItem   = new ActionItem(MIRO, "Tocamiento", getResources().getDrawable(R.drawable.ic_launcher));
+        ActionItem exhibicionismotItem   = new ActionItem(EXCIVO, "Exhibicionísmo", getResources().getDrawable(R.drawable.ic_launcher));
+        uploadItem.setSticky(true);
+
+        mQuickAction  = new QuickAction(activity);
+       
+        mQuickAction.addActionItem(addItem);
+        mQuickAction.addActionItem(acceptItem);
+        mQuickAction.addActionItem(uploadItem);
+        mQuickAction.addActionItem(exhibicionismotItem);
+		
 		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 		View view = activity.getLayoutInflater().inflate(R.layout.activity_reporte, null);
 		builder.setView(view);
@@ -236,6 +259,31 @@ public class HazmeElParoActivity extends Activity implements
 		
 		 iv_reporte_usuario = (ImageView) view	.findViewById(R.id.enviar_alarma_iv_reporte_usuario);
 		iv_reporte_usuario.setLayoutParams(lp);
+		
+		 mQuickAction.setOnActionItemClickListener(new QuickAction.OnActionItemClickListener() {
+	            @Override
+	            public void onItemClick(QuickAction quickAction, int pos, int actionId) {
+	                ActionItem actionItem = quickAction.getActionItem(pos);
+
+	                if (actionId == TOCO) {
+	                	new MensajeTask(TIPO_SELECCION_ACCION).execute();
+	                } else if (actionId == MIRO){
+	                	new MensajeTask(TIPO_SELECCION_ACCION).execute();
+	                }else if (actionId == VERBAL){
+	                	new MensajeTask(TIPO_SELECCION_ACCION).execute();
+	                }else if (actionId == EXCIVO){
+	                	new MensajeTask(TIPO_SELECCION_ACCION).execute();
+	                }
+	                mQuickAction.dismiss();
+	            }
+	        });
+
+	        mQuickAction.setOnDismissListener(new QuickAction.OnDismissListener() {
+	            @Override
+	            public void onDismiss() {
+	                //Toast.makeText(activity, "Ups..dismissed", Toast.LENGTH_SHORT).show();
+	            }
+	        });
 			
 		return (customDialog = builder.create());
 	}
@@ -245,11 +293,11 @@ public class HazmeElParoActivity extends Activity implements
 		switch (v.getId()) {
 		case R.id.safebus_btn_alguien_mas:
 			  TIPO_SELECCION_ACCION= 2;
-			  new MensajeTask(TIPO_SELECCION_ACCION).execute();
+			  mQuickAction.show(v);//new MensajeTask(TIPO_SELECCION_ACCION).execute();
 			break;
 		case R.id.safebus_btn_yo:
 		     TIPO_SELECCION_ACCION = 1;
-		     new MensajeTask(TIPO_SELECCION_ACCION).execute();
+		     mQuickAction.show(v);//new MensajeTask(TIPO_SELECCION_ACCION).execute();
 			break;
 		case R.id.enviar_alarma_btn_aceptar:
 			 customDialog.dismiss();
