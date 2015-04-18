@@ -6,16 +6,22 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.pm.ActivityInfo;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+
+import com.citydevs.hazmeelparo.utils.Utils;
 
 public class InstructionsActivity extends Activity {
+	private static Point p;
 	private static int index_view = 0;
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -37,8 +43,9 @@ public class InstructionsActivity extends Activity {
 		
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		
+
 		setContentView(R.layout.activity_instructions);
+		p = Utils.getTamanoPantalla(InstructionsActivity.this);
 
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the activity.
@@ -49,8 +56,6 @@ public class InstructionsActivity extends Activity {
 		mViewPager.setAdapter(mSectionsPagerAdapter);
 
 	}
-
-	
 
 	/**
 	 * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -79,12 +84,7 @@ public class InstructionsActivity extends Activity {
 		@Override
 		public CharSequence getPageTitle(int position) {
 			Locale l = Locale.getDefault();
-			switch (position) {
-			case 0:
-				return getString(R.string.title_section1).toUpperCase(l);
-			case 1:
-				return getString(R.string.title_section2).toUpperCase(l);
-			}
+
 			return null;
 		}
 	}
@@ -118,14 +118,22 @@ public class InstructionsActivity extends Activity {
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
 			View rootView = null;
-			if (index_view == 0){
-			  rootView = inflater.inflate(R.layout.fragment_instructions,container, false);
-			  index_view +=1 ;
-			}else if (index_view == 1){
-			  rootView = inflater.inflate(R.layout.fragent_instructions_config,container, false);
-			  index_view = 0;
+
+			if (index_view == 0) {
+				rootView = inflater.inflate(R.layout.fragment_instructions,
+						container, false);
+				index_view += 1;
+				LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(p.x / 3, p.y / 4);
+
+				ImageView instrucciones_iv_logo = (ImageView) rootView.findViewById(R.id.instrucciones_iv_logo);
+				instrucciones_iv_logo.setLayoutParams(lp);
+				
+			} else if (index_view == 1) {
+				rootView = inflater.inflate(
+						R.layout.fragent_instructions_config, container, false);
+				index_view = 0;
 			}
-			
+
 			return rootView;
 		}
 	}

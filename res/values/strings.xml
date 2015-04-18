@@ -2,10 +2,14 @@
 <resources>
 
     <string name="app_name">HazmeElParo</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="texto_instrucciones_uno">Es una aplicación para reportar el acoso 
+sexual y la violencia de genero hacia las mujeres en el transporte público, en 3 sencillos pasos.</string>
+<string name="texto_numero_1">CONFIGURA</string>
+<string name="texto_numero_2">REPORTA</string>
+<string name="texto_numero_3">CONECTA</string>
+<!-- Bottons -->
+<string name="btn_continuar">Continuar</string>
 
+<!-- Dialogos -->
+<string name="espere">Espere por favor</string>
 </resources>
