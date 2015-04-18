@@ -4,13 +4,18 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.citydevs.hazmeelparo.splash.SplashActivity;
+import com.citydevs.hazmeelparo.utils.Utils;
 
 public class HazmeElParoActivity extends Activity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -29,6 +34,11 @@ public class HazmeElParoActivity extends Activity implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		if (new Utils(HazmeElParoActivity.this).getPreferenciasGCM()==null) {//si ya registro
+			startActivity(new Intent().setClass(HazmeElParoActivity.this, SplashActivity.class));
+			this.finish();
+		} 
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_hazme_el_paro);
 

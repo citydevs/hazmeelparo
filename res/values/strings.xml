@@ -23,14 +23,16 @@ sexual y la violencia de genero hacia las mujeres en el transporte público, en 
 
     <!-- Bottons -->
     <string name="btn_continuar">Continuar</string>
+        <string name="btn_reporta">Reporta</string>
+            <string name="btn_conecta">Conecta</string>
 
     <!-- Dialogos -->
     <string name="espere">Espere por favor</string>
     <string name="atras_salir">Presiona una vez más para salir</string>
     <string name="title_activity_hazme_el_paro">HazmeElParoActivity</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_section1">HazmeElParo</string>
+    <string name="title_section2">Contacto</string>
+    <string name="title_section3">AcercaDe</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>

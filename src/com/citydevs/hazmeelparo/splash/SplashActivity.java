@@ -39,14 +39,8 @@ public class SplashActivity extends Activity {
 		RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(p.x / 2, p.y / 3);
 		lp.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
 		frame_splash.setLayoutParams(lp);
-		
-		if(new Utils(SplashActivity.this).getPreferenciasGCM()!= null){
-			init(HazmeElParoActivity.class);
-		}else{
-		
-		
+
 		init(InstructionsActivity.class);
-		}
 	}
 
 	/**

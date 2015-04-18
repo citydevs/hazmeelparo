@@ -410,33 +410,34 @@ containing a value of this type.
         public static final int common_signin_btn_text_normal_light=0x7f02001a;
         public static final int common_signin_btn_text_pressed_dark=0x7f02001b;
         public static final int common_signin_btn_text_pressed_light=0x7f02001c;
-        public static final int drawer_shadow=0x7f02001d;
-        public static final int ic_drawer=0x7f02001e;
-        public static final int ic_launcher=0x7f02001f;
-        public static final int ic_launcher_numero_1=0x7f020020;
-        public static final int ic_launcher_numero_2=0x7f020021;
-        public static final int ic_launcher_numero_3=0x7f020022;
-        public static final int ic_launcher_perfil=0x7f020023;
-        public static final int ic_launcher_telefono=0x7f020024;
-        public static final int ic_plusone_medium_off_client=0x7f020025;
-        public static final int ic_plusone_small_off_client=0x7f020026;
-        public static final int ic_plusone_standard_off_client=0x7f020027;
-        public static final int ic_plusone_tall_off_client=0x7f020028;
-        public static final int logo_blanco=0x7f020029;
-        public static final int logo_hazme_el_paro=0x7f02002a;
-        public static final int marco=0x7f02002b;
-        public static final int powered_by_google_dark=0x7f02002c;
-        public static final int powered_by_google_light=0x7f02002d;
-        public static final int selector_btn_generic=0x7f02002e;
-        public static final int selector_edittext=0x7f02002f;
-        public static final int selector_edittext_focused=0x7f020030;
-        public static final int selector_edittext_pressed=0x7f020031;
-        public static final int selector_txt_boton_redondo=0x7f020032;
-        public static final int shape_toast=0x7f020033;
+        public static final int conecta=0x7f02001d;
+        public static final int drawer_shadow=0x7f02001e;
+        public static final int ic_drawer=0x7f02001f;
+        public static final int ic_launcher=0x7f020020;
+        public static final int ic_launcher_numero_1=0x7f020021;
+        public static final int ic_launcher_numero_2=0x7f020022;
+        public static final int ic_launcher_numero_3=0x7f020023;
+        public static final int ic_launcher_perfil=0x7f020024;
+        public static final int ic_launcher_telefono=0x7f020025;
+        public static final int ic_plusone_medium_off_client=0x7f020026;
+        public static final int ic_plusone_small_off_client=0x7f020027;
+        public static final int ic_plusone_standard_off_client=0x7f020028;
+        public static final int ic_plusone_tall_off_client=0x7f020029;
+        public static final int logo_blanco=0x7f02002a;
+        public static final int logo_hazme_el_paro=0x7f02002b;
+        public static final int marco=0x7f02002c;
+        public static final int powered_by_google_dark=0x7f02002d;
+        public static final int powered_by_google_light=0x7f02002e;
+        public static final int reporta=0x7f02002f;
+        public static final int selector_btn_generic=0x7f020030;
+        public static final int selector_edittext=0x7f020031;
+        public static final int selector_edittext_focused=0x7f020032;
+        public static final int selector_edittext_pressed=0x7f020033;
+        public static final int selector_txt_boton_redondo=0x7f020034;
+        public static final int shape_toast=0x7f020035;
     }
     public static final class id {
-        public static final int action_example=0x7f070038;
-        public static final int action_settings=0x7f070037;
+        public static final int action_settings=0x7f07003a;
         public static final int book_now=0x7f070010;
         public static final int btn_eliminar_contacto=0x7f070015;
         public static final int buyButton=0x7f07000a;
@@ -449,25 +450,28 @@ containing a value of this type.
         public static final int drawer_layout=0x7f070022;
         public static final int frame_splash=0x7f070026;
         public static final int grayscale=0x7f070012;
+        public static final int hazme_el_paro_ll_conecta=0x7f07002c;
+        public static final int hazme_el_paro_ll_reporta=0x7f07002a;
         public static final int holo_dark=0x7f070005;
         public static final int holo_light=0x7f070006;
         public static final int hybrid=0x7f070004;
         public static final int imageView1=0x7f07001d;
+        public static final int imageView2=0x7f07002b;
         public static final int imageView3=0x7f07001f;
-        public static final int imageView4=0x7f07002e;
-        public static final int imageView5=0x7f070030;
-        public static final int instrucciones_btn_siguiente=0x7f070032;
-        public static final int instrucciones_iv_logo=0x7f07002b;
+        public static final int imageView4=0x7f070031;
+        public static final int imageView5=0x7f070033;
+        public static final int instrucciones_btn_siguiente=0x7f070035;
+        public static final int instrucciones_iv_logo=0x7f07002f;
         public static final int linearLayout1=0x7f07001e;
-        public static final int linearLayout2=0x7f07002d;
-        public static final int linearLayoutimagen=0x7f07002a;
+        public static final int linearLayout2=0x7f070030;
+        public static final int linearLayoutimagen=0x7f07002e;
         public static final int match_parent=0x7f07000c;
         public static final int mitaxiregistermanually_ll_contactos=0x7f070017;
         public static final int mitaxiregistermanually_ll_container_infouser_2=0x7f070019;
         public static final int mitaxiregistermanually_sv_container_infouser_emer=0x7f070014;
         public static final int mitaxiregistermanually_tv_label=0x7f070021;
         public static final int monochrome=0x7f070013;
-        public static final int my_group=0x7f070033;
+        public static final int my_group=0x7f070036;
         public static final int navigation_drawer=0x7f070024;
         public static final int none=0x7f070000;
         public static final int normal=0x7f070001;
@@ -477,7 +481,7 @@ containing a value of this type.
         public static final int registro_btn_guardar=0x7f070016;
         public static final int registro_et_mensaje_emergencia=0x7f07001c;
         public static final int registro_et_telefono=0x7f07001a;
-        public static final int row_lista_tv_info=0x7f070034;
+        public static final int row_lista_tv_info=0x7f070037;
         public static final int sandbox=0x7f070008;
         public static final int satellite=0x7f070002;
         public static final int section_label=0x7f070029;
@@ -485,12 +489,12 @@ containing a value of this type.
         public static final int strict_sandbox=0x7f070009;
         public static final int terrain=0x7f070003;
         public static final int textView1=0x7f070018;
-        public static final int textView2=0x7f07002c;
+        public static final int textView2=0x7f07002d;
         public static final int textView3=0x7f070020;
-        public static final int textView4=0x7f07002f;
-        public static final int textView5=0x7f070031;
-        public static final int texttoast=0x7f070036;
-        public static final int toastcustom=0x7f070035;
+        public static final int textView4=0x7f070032;
+        public static final int textView5=0x7f070034;
+        public static final int texttoast=0x7f070039;
+        public static final int toastcustom=0x7f070038;
         public static final int wrap_content=0x7f07000d;
     }
     public static final class integer {
@@ -515,13 +519,15 @@ containing a value of this type.
     }
     public static final class string {
         public static final int accept=0x7f050002;
-        public static final int action_example=0x7f05003e;
-        public static final int action_settings=0x7f05003f;
+        public static final int action_example=0x7f050040;
+        public static final int action_settings=0x7f050041;
         public static final int app_name=0x7f050023;
-        public static final int atras_salir=0x7f050037;
+        public static final int atras_salir=0x7f050039;
+        public static final int btn_conecta=0x7f050037;
         /**  Bottons 
          */
         public static final int btn_continuar=0x7f050035;
+        public static final int btn_reporta=0x7f050036;
         /**   Text for notification shown when the Android Wear apps needs to be updated. Only shown on the wearable. [CHAR LIMIT=NONE] 
          */
         public static final int common_android_wear_notification_needs_update_text=0x7f050009;
@@ -627,12 +633,12 @@ containing a value of this type.
         public static final int eliminar_contacto=0x7f05002b;
         /**  Dialogos 
          */
-        public static final int espere=0x7f050036;
+        public static final int espere=0x7f050038;
         public static final int instrucciones_contacto=0x7f05002c;
         public static final int mensaje_emergencia=0x7f050029;
         public static final int mensaje_emergencia_hint=0x7f05002a;
-        public static final int navigation_drawer_close=0x7f05003d;
-        public static final int navigation_drawer_open=0x7f05003c;
+        public static final int navigation_drawer_close=0x7f05003f;
+        public static final int navigation_drawer_open=0x7f05003e;
         public static final int registro_btn_guardar=0x7f05002d;
         public static final int registro_correo_incorrecto=0x7f050034;
         public static final int registro_correo_vacio=0x7f050031;
@@ -648,10 +654,10 @@ containing a value of this type.
         public static final int texto_numero_1=0x7f050025;
         public static final int texto_numero_2=0x7f050026;
         public static final int texto_numero_3=0x7f050027;
-        public static final int title_activity_hazme_el_paro=0x7f050038;
-        public static final int title_section1=0x7f050039;
-        public static final int title_section2=0x7f05003a;
-        public static final int title_section3=0x7f05003b;
+        public static final int title_activity_hazme_el_paro=0x7f05003a;
+        public static final int title_section1=0x7f05003b;
+        public static final int title_section2=0x7f05003c;
+        public static final int title_section3=0x7f05003d;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
          */
