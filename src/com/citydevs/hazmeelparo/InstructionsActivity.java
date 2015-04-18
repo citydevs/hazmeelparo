@@ -1,36 +1,42 @@
 package com.citydevs.hazmeelparo;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.database.Cursor;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 
 import com.citydevs.hazmeelparo.contact.ContactoActivity;
 import com.citydevs.hazmeelparo.contact.ContactoActivity.OnListenerOpenContact;
+import com.citydevs.hazmeelparo.contact.MySimpleArrayAdapter;
 import com.citydevs.hazmeelparo.utils.Utils;
 
 public class InstructionsActivity extends Activity implements OnListenerOpenContact{
 	private static Point p;
 	private static int index_view = 0;
-	private String telefono;
 	private static OnListenerCambiarTexto onListenerCambiarTexto;
+	AlertDialog customDialog= null;
+	private ArrayList<String> listaCels;
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
 	 * fragments for each of the sections. We use a {@link FragmentPagerAdapter}
@@ -160,7 +166,7 @@ public class InstructionsActivity extends Activity implements OnListenerOpenCont
 	}
 	
 	
-	public void set_contact(){
+	public void set_contact(String telefono){
 		onListenerCambiarTexto.onListenerCambiarTexto(telefono);
 	}
 	
@@ -175,8 +181,12 @@ public class InstructionsActivity extends Activity implements OnListenerOpenCont
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == 0) {	
-			telefono = new Utils(InstructionsActivity.this).getContactInfo(data,0);
-			set_contact();
+			String telefono = getContactInfo(data);
+			if (telefono.equals("MULTIPLES")){
+				dialogoLista();
+			}else{
+				set_contact(telefono);
+			}
 		}
  		
 	}
@@ -206,4 +216,93 @@ public class InstructionsActivity extends Activity implements OnListenerOpenCont
 		open_contact();
 	}
 
+	
+	
+	/**
+	 * agrega la vista del contacto de emergencia
+	 */
+	public void dialogoLista(){
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+	    View view = getLayoutInflater().inflate(R.layout.dialogo_contactos, null);
+		    builder.setView(view);
+		    builder.setCancelable(true);
+			final ListView listview = (ListView) view.findViewById(R.id.dialogo_contacto_lv_contactos);
+			final MySimpleArrayAdapter adapter = new MySimpleArrayAdapter(this, listaCels);
+		    listview.setAdapter(adapter);
+		    listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+		    @Override
+		    public void onItemClick(AdapterView<?> parent, final View view,int position, long id) {
+		    final String item = (String) parent.getItemAtPosition(position);
+		    	set_contact(item.replaceAll(" ",""));
+		         customDialog.dismiss();
+		       }
+		     });
+	     customDialog=builder.create();
+	     customDialog.show();
+	}
+	
+	/**
+	 * metodo que llena tanto el numero celular como correo de emergencia con los contactos del usuario
+	 * @param intent
+	 * @param tag
+	 */
+	public  String getContactInfo(Intent intent)
+	{
+		String telefono = "";
+		try{
+			@SuppressWarnings("deprecation")
+			Cursor   cursor =  managedQuery(intent.getData(), null, null, null, null);      
+			  if(!cursor.isClosed()&&cursor!=null){
+			   while (cursor.moveToNext()) 
+			   {           
+			       String contactId = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
+			       String hasPhone = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
+		
+			       if ( hasPhone.equalsIgnoreCase("1")){
+			           hasPhone = "true";
+			           
+			       }else{
+			           hasPhone = "false" ;
+			       }
+			       if (Boolean.parseBoolean(hasPhone)) 
+			       {
+			        Cursor phones = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,ContactsContract.CommonDataKinds.Phone.CONTACT_ID +" = "+ contactId,null, null);
+			       listaCels= new ArrayList<String>();
+			        while (phones.moveToNext()) 
+			        {
+			     
+			          String phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+			          phoneNumber=  phoneNumber.replaceAll(" ", "");
+			          
+			          final char c = phoneNumber.charAt(0);
+			          if(c=='+'){
+			        	  try{
+			        		  phoneNumber =  phoneNumber.substring(3, 13); 
+			        	  }catch(Exception e){
+			        		 
+			        	  }
+			          }
+			          
+			          listaCels.add(phoneNumber);
+			        }
+			        if(listaCels.size()==1){ //si tiene solo un telefono
+			        	telefono = listaCels.get(0); 				        	
+			        }else if(listaCels.size()==0){//si no tiene telefono
+			        	telefono = "";
+			        }else{
+			        	
+			        	telefono = "MULTIPLES";
+			        	//dialogoLista(tag+"");
+			        }
+			        phones.close();
+			       }
+			       break;
+			  }  
+			  }
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return telefono;
+	}
+	
 }

@@ -48,7 +48,6 @@ import com.citydevs.hazmeelparo.contact.MySimpleArrayAdapter;
 public class Utils {
 
 	Activity activity;
-	private ArrayList<String> listaCels;
 	AlertDialog customDialog= null;
 	String telefono= "";
 
@@ -190,91 +189,4 @@ public class Utils {
 	        mytoast.setDuration(Toast.LENGTH_LONG);
 	        mytoast.show();
 		}
-		
-		
-		/**
-		 * metodo que llena tanto el numero celular como correo de emergencia con los contactos del usuario
-		 * @param intent
-		 * @param tag
-		 */
-		public  String getContactInfo(Intent intent, int tag)
-		{
-			try{
-				@SuppressWarnings("deprecation")
-				Cursor   cursor =  activity.managedQuery(intent.getData(), null, null, null, null);      
-				  if(!cursor.isClosed()&&cursor!=null){
-				   while (cursor.moveToNext()) 
-				   {           
-				       String contactId = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
-				       String hasPhone = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
-			
-				       if ( hasPhone.equalsIgnoreCase("1")){
-				           hasPhone = "true";
-				           
-				       }else{
-				           hasPhone = "false" ;
-				       }
-				       if (Boolean.parseBoolean(hasPhone)) 
-				       {
-				        Cursor phones = activity.getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,ContactsContract.CommonDataKinds.Phone.CONTACT_ID +" = "+ contactId,null, null);
-				       listaCels= new ArrayList<String>();
-				        while (phones.moveToNext()) 
-				        {
-				     
-				          String phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-				          phoneNumber=  phoneNumber.replaceAll(" ", "");
-				          
-				          final char c = phoneNumber.charAt(0);
-				          if(c=='+'){
-				        	  try{
-				        		  phoneNumber =  phoneNumber.substring(3, 13); 
-				        	  }catch(Exception e){
-				        		 
-				        	  }
-				          }
-				          
-				          listaCels.add(phoneNumber);
-				        }
-				        if(listaCels.size()==1){ //si tiene solo un telefono
-				        	telefono = listaCels.get(0); 				        	
-				        }else if(listaCels.size()==0){//si no tiene telefono
-				        	telefono = "";
-				        }else{
-				        	dialogoLista(tag+"");
-				        }
-				        phones.close();
-				       }
-				       break;
-				  }  
-				  }
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-			return telefono;
-		}
-		
-		
-		/**
-		 * agrega la vista del contacto de emergencia
-		 */
-		public void dialogoLista(final String tag){
-			AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-		    View view = activity.getLayoutInflater().inflate(R.layout.dialogo_contactos, null);
-			    builder.setView(view);
-			    builder.setCancelable(true);
-				final ListView listview = (ListView) view.findViewById(R.id.dialogo_contacto_lv_contactos);
-				final MySimpleArrayAdapter adapter = new MySimpleArrayAdapter(activity, listaCels);
-			    listview.setAdapter(adapter);
-			    listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			    @Override
-			    public void onItemClick(AdapterView<?> parent, final View view,int position, long id) {
-			    final String item = (String) parent.getItemAtPosition(position);
-			    	telefono = item.replaceAll(" ","");
-			         customDialog.dismiss();
-			       }
-			     });
-		     customDialog=builder.create();
-		     customDialog.show();
-		}
-
 }
