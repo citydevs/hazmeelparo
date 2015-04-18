@@ -32,6 +32,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.StrictMode;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -198,10 +199,7 @@ public class Utils {
 		 */
 		public  String getContactInfo(Intent intent, int tag)
 		{
-
 			try{
-				
-				
 				@SuppressWarnings("deprecation")
 				Cursor   cursor =  activity.managedQuery(intent.getData(), null, null, null, null);      
 				  if(!cursor.isClosed()&&cursor!=null){
@@ -238,8 +236,7 @@ public class Utils {
 				          listaCels.add(phoneNumber);
 				        }
 				        if(listaCels.size()==1){ //si tiene solo un telefono
-				        	telefono = listaCels.get(0); 
-				        	
+				        	telefono = listaCels.get(0); 				        	
 				        }else if(listaCels.size()==0){//si no tiene telefono
 				        	telefono = "";
 				        }else{
@@ -251,7 +248,7 @@ public class Utils {
 				  }  
 				  }
 			}catch(Exception e){
-			
+				e.printStackTrace();
 			}
 			return telefono;
 		}
