@@ -70,7 +70,6 @@ public class HazmeElParoActivity extends Activity implements
     private static final int EXCIVO = 4;
     static QuickAction mQuickAction;
 
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		if (new Utils(HazmeElParoActivity.this).getPreferenciasGCM()==null) {//si ya registro
