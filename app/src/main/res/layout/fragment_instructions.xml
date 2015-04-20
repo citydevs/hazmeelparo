@@ -2,7 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     tools:context="com.citydevs.hazmeelparo.InstructionsActivity$PlaceholderFragment" >
@@ -21,14 +20,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
         android:gravity="center" >
 
         <ImageView
             android:id="@+id/instrucciones_iv_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:src="@drawable/logo_hazme_el_paro" />
     </LinearLayout>
 
@@ -38,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayoutimagen"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="2dp"
         android:text="@string/app_name"
         android:textColor="@color/color_negro"
         android:textSize="32sp" />
@@ -49,18 +46,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
         android:gravity="center"
         android:text="@string/texto_instrucciones_uno"
-        android:textSize="16sp" />
+        android:textSize="15sp" />
 
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp" >
+        android:layout_below="@+id/textView2" >
 
         <ImageView
             android:id="@+id/imageView3"
@@ -135,11 +129,9 @@
 
     <Button
         android:id="@+id/instrucciones_btn_siguiente"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/textView1"
         android:background="@drawable/selector_btn_generic"
         android:gravity="center"
         android:text="@string/btn_continuar"

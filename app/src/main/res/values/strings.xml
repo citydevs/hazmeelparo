@@ -13,7 +13,7 @@ sexual y la violencia de genero hacia las mujeres en el transporte público, en 
     <string name="eliminar_contacto">Eliminar contacto</string>
     <string name="instrucciones_contacto">Si en algún momento te sientes inseguro o agredido, puedes apretar el botón de REPORTA y se mandará una notificación al centro de mando y al contacto que elijas en este momento.</string>
     <string name="registro_btn_guardar">Guardar</string>
-    <string name="registro_titulo">Contacto de emergencia</string>
+    <string name="registro_titulo">Contacto de\n emergencia</string>
     <string name="registro_selecciona_uno">Selecciona uno</string>
     <string name="registro_telefono_vacio">Debes llenar el teléfono correctamente</string>
     <string name="registro_correo_vacio">El mensaje NO puede estar vacio</string>

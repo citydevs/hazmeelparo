@@ -11,14 +11,12 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_above="@+id/btn_eliminar_contacto"
-        android:layout_below="@+id/registro_btn_guardar"
+        android:layout_below="@+id/ll_guardar"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginTop="5dp"
         android:layout_weight="1"
         android:fillViewport="true"
         android:overScrollMode="never"
-        android:paddingTop="5dp"
         android:scrollbars="vertical" >
 
         <LinearLayout
@@ -30,13 +28,8 @@
             android:paddingLeft="3dp"
             android:paddingRight="3dp"
             android:paddingTop="3dp" >
-            
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="@string/instrucciones_contacto" />
+
+
 
             <LinearLayout
                 android:id="@+id/mitaxiregistermanually_ll_container_infouser_2"
@@ -44,7 +37,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/marco"
                 android:orientation="horizontal"
-                android:padding="5dp" >
+                android:padding="5dp"
+                android:layout_marginTop="5dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -100,19 +94,24 @@
                     android:id="@+id/registro_et_mensaje_emergencia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
                     android:background="@drawable/selector_edittext"
                     android:ems="10"
                     android:hint="@string/mensaje_emergencia_hint"
                     android:inputType="textMultiLine"
                     android:lines="4"
                     android:maxLength="80"
-                    android:padding="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
                     android:singleLine="false"
                     android:text="@string/mensaje_emergencia" />
             </LinearLayout>
 
-            
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@string/instrucciones_contacto" />
         </LinearLayout>
     </ScrollView>
 
@@ -148,34 +147,38 @@
             android:textColor="@color/color_negro"
             android:textStyle="bold" />
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_guardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/linearLayout1">
 
+        <TextView
+            android:id="@+id/mitaxiregistermanually_tv_label"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_height="match_parent"
+            android:gravity="center|center_vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/registro_titulo"
+            android:textStyle="bold" />
     <Button
         android:id="@+id/registro_btn_guardar"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight=".5"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/linearLayout1"
-        android:layout_margin="5dp"
-        android:layout_toRightOf="@+id/mitaxiregistermanually_tv_label"
         android:background="@drawable/selector_btn_generic"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
+        android:layout_marginRight="8dp"
         android:text="@string/registro_btn_guardar"
         android:textColor="@drawable/selector_txt_boton_redondo" />
 
-    <TextView
-        android:id="@+id/mitaxiregistermanually_tv_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/registro_btn_guardar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/imageView1"
-        android:layout_alignTop="@+id/registro_btn_guardar"
-        android:gravity="left|center_vertical"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:text="@string/registro_titulo"
-        android:textStyle="bold" />
+
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_eliminar_contacto"
