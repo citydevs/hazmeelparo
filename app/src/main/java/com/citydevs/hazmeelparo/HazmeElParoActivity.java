@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.citydevs.hazmeelparo.facebook.FacebookLoginActivity;
 import com.citydevs.hazmeelparo.popup.ActionItem;
 import com.citydevs.hazmeelparo.popup.QuickAction;
 import com.citydevs.hazmeelparo.splash.SplashActivity;
@@ -184,7 +185,7 @@ public class HazmeElParoActivity extends Activity implements
 				
 				@Override
 				public void onClick(View v) {
-				//	startActivity(new Intent(activity, FacebookLoginActivity.class));
+					startActivity(new Intent(activity, FacebookLoginActivity.class));
 
 				}
 			});

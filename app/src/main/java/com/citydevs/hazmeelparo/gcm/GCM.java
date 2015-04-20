@@ -1,8 +1,5 @@
 package com.citydevs.hazmeelparo.gcm;
 
-import java.io.IOException;
-import java.util.concurrent.atomic.AtomicInteger;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -19,13 +16,16 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
+import java.io.IOException;
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class GCM {
 
 	private Activity activity;
 	    private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 	    static final String TAG = "GCMDemo";
 	    private String regid;
-	    String SENDER_ID = "849687871210";
+	    String SENDER_ID = "536245866204";
 	    String URL = "MY_SERVER_URL";
 	 	public static final String EXTRA_MESSAGE = "message";
 	    public static final String PROPERTY_REG_ID = "registration_id";
@@ -72,12 +72,15 @@ public class GCM {
 			  
 	    	@Override
 			protected void onPreExecute() {
-	    	pd=	Utils.anillo(activity, pd);
+                Log.d("*******************", gcm+"");
+	    	pd = Utils.anillo(activity, pd);
 	    	pd.show();   
 	    		 if (gcm == null) {
+                     Log.d("*******************", "gcm _nill");
 	    			 gcm_ = GoogleCloudMessaging.getInstance(activity);
 	                }else{
-	                 gcm_=gcm;
+                     Log.d("*******************", "gcm _ NO nill");
+	                 gcm_ = gcm;
 	                }
 				super.onPreExecute();
 			}
@@ -87,12 +90,11 @@ public class GCM {
 	        protected String doInBackground(String... params) {
 	            String msg = "";
 	            try {
-	               
 	                regid = gcm_.register(SENDER_ID);
 	                msg = regid;
-              
-	               
+
 	            } catch (IOException ex) {
+                    ex.printStackTrace();
 	                msg = "Error";
 	            }
 	            return msg;
@@ -101,11 +103,11 @@ public class GCM {
 	        @Override
 	        protected void onPostExecute(String msg) {
 	        	if(!msg.equals("Error")){
-	        		Log.d("*******************", msg+"");
 	        		 new   Utils(activity).setPreferenciasGCM(msg);
 	        		 if(Utils.doHttpPostAltaUsuario(activity,"https://cryptic-peak-2139.herokuapp.com/clients")){
 	        			 if(pd!=null)
-	     	        		pd.dismiss();
+	     	        	    pd.dismiss();
+
 	        			 activity.startActivity(new Intent(activity,HazmeElParoActivity.class));
 				         activity.finish();
 	        		 }

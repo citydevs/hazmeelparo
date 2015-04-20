@@ -42,4 +42,10 @@ sexual y la violencia de genero hacia las mujeres en el transporte público, en 
     <string name="notificar_chofer_familia">Gracias por reportar, hemos notificado al centro de mando y a tu contacto de seguridad.</string>
     <string name="notificar_chofer">Gracias por reportar, hemos notificado al centro de mando.</string>
 
+
+    <string name="notificar_acceso_wifi">Para acceder al WiFi del autobus, da like al grupo de SafeBus y te enviaremos la contraseña</string>
+    <string name="gracias_por_compartir">En ese grupo podrás compartir mejor tu perspectiva sobre esta campaña y el servicio que se está dando en la línea de autobús.</string>
+    <string name="gracias_por_compartir_banda">Para obtener la contraseña la próxima vez que hagas un viaje, te pediremos que califiques tu viaje una vez que bajes del autobús.</string>
+    <!-- conectar -->
+    <string name="Pagina_liked">En un momento te enviaremos la contraseña</string>
 </resources>

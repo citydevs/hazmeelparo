@@ -83,8 +83,9 @@ public void init(){
 				if(validaEditText()){
 					new Utils(context).setPreferenciasContacto(new String[]{et_telefono.getText().toString(),et_mensaje_emergencia.getText().toString()});
 					Utils.Toast(context, "Contacto guardado", Toast.LENGTH_SHORT);
-					
+
 					 mGCM= new GCM(context);
+
 			            Log.i("*****************", mGCM.checkPlayServices()+"");
 					  if (mGCM.checkPlayServices()) {
 				            gcm = GoogleCloudMessaging.getInstance(context);
@@ -170,6 +171,8 @@ public void init(){
 		  }*/
 		return true;
 	}
+
+
 
 
 	public View getView(){
