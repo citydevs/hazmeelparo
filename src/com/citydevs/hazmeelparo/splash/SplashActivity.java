@@ -12,7 +12,6 @@ import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
-import com.citydevs.hazmeelparo.HazmeElParoActivity;
 import com.citydevs.hazmeelparo.InstructionsActivity;
 import com.citydevs.hazmeelparo.R;
 import com.citydevs.hazmeelparo.utils.Utils;

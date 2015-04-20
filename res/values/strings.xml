@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="app_id">1505094703080117</string>
     <string name="app_name">HazmeElParo</string>
     <string name="texto_instrucciones_uno">Es una aplicación para reportar el acoso 
 sexual y la violencia de genero hacia las mujeres en el transporte público, en 3 sencillos pasos.</string>

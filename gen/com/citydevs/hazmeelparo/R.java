@@ -391,9 +391,9 @@ containing a value of this type.
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f0a0000;
-        public static final int activity_vertical_margin=0x7f0a0001;
-        public static final int navigation_drawer_width=0x7f0a0002;
+        public static final int activity_horizontal_margin=0x7f090000;
+        public static final int activity_vertical_margin=0x7f090001;
+        public static final int navigation_drawer_width=0x7f090002;
     }
     public static final class drawable {
         public static final int alarma0=0x7f020000;
@@ -480,86 +480,86 @@ containing a value of this type.
         public static final int shape_toast=0x7f020051;
     }
     public static final class id {
-        public static final int action_settings=0x7f08004c;
-        public static final int arrow_down=0x7f080047;
-        public static final int arrow_up=0x7f080043;
-        public static final int book_now=0x7f080010;
-        public static final int btn_eliminar_contacto=0x7f080017;
-        public static final int buyButton=0x7f08000a;
-        public static final int buy_now=0x7f08000f;
-        public static final int buy_with_google=0x7f08000e;
-        public static final int classic=0x7f080011;
-        public static final int container=0x7f080025;
-        public static final int dialogo_contacto_lv_contactos=0x7f080035;
-        public static final int dialogo_contacto_tv_subtitulo=0x7f080034;
-        public static final int drawer_layout=0x7f080024;
-        public static final int enviar_alarma_btn_aceptar=0x7f080032;
-        public static final int enviar_alarma_iv_alarma=0x7f08002e;
-        public static final int enviar_alarma_iv_reporte_chofer=0x7f080031;
-        public static final int enviar_alarma_iv_reporte_usuario=0x7f080030;
-        public static final int footer=0x7f080046;
-        public static final int frame_splash=0x7f080033;
-        public static final int grayscale=0x7f080012;
-        public static final int hazme_el_paro_ll_conecta=0x7f080039;
-        public static final int hazme_el_paro_ll_reporta=0x7f080037;
-        public static final int header2=0x7f080042;
-        public static final int holo_dark=0x7f080005;
-        public static final int holo_light=0x7f080006;
-        public static final int hybrid=0x7f080004;
-        public static final int imageView1=0x7f08001f;
-        public static final int imageView2=0x7f080038;
-        public static final int imageView3=0x7f080021;
-        public static final int imageView4=0x7f08003d;
-        public static final int imageView5=0x7f08003f;
-        public static final int instrucciones_btn_siguiente=0x7f080041;
-        public static final int instrucciones_iv_logo=0x7f08003b;
-        public static final int iv_icon=0x7f080014;
-        public static final int linearLayout1=0x7f080020;
-        public static final int linearLayout2=0x7f08003c;
-        public static final int linearLayoutimagen=0x7f08003a;
-        public static final int match_parent=0x7f08000c;
-        public static final int mitaxiregistermanually_ll_contactos=0x7f080019;
-        public static final int mitaxiregistermanually_ll_container_infouser_2=0x7f08001b;
-        public static final int mitaxiregistermanually_sv_container_infouser_emer=0x7f080016;
-        public static final int mitaxiregistermanually_tv_label=0x7f080023;
-        public static final int monochrome=0x7f080013;
-        public static final int my_group=0x7f080048;
-        public static final int navigation_drawer=0x7f080026;
-        public static final int none=0x7f080000;
-        public static final int normal=0x7f080001;
-        public static final int pager=0x7f080027;
-        public static final int production=0x7f080007;
-        public static final int registro_btn_contacto=0x7f08001d;
-        public static final int registro_btn_guardar=0x7f080018;
-        public static final int registro_et_mensaje_emergencia=0x7f08001e;
-        public static final int registro_et_telefono=0x7f08001c;
-        public static final int row_lista_tv_info=0x7f080049;
-        public static final int safebus_btn_alguien_mas=0x7f08002b;
-        public static final int safebus_btn_yo=0x7f08002a;
-        public static final int safebus_ll_enviando_mensaje=0x7f08002d;
-        public static final int safebus_ll_quien=0x7f080029;
-        public static final int safebus_ll_reporte_hecho=0x7f08002f;
-        public static final int safebus_tv_problemas_titulo=0x7f080028;
-        public static final int sandbox=0x7f080008;
-        public static final int satellite=0x7f080002;
-        public static final int scroll=0x7f080044;
-        public static final int section_label=0x7f080036;
-        public static final int selectionDetails=0x7f08000b;
-        public static final int strict_sandbox=0x7f080009;
-        public static final int terrain=0x7f080003;
-        public static final int textView1=0x7f08001a;
-        public static final int textView2=0x7f08002c;
-        public static final int textView3=0x7f080022;
-        public static final int textView4=0x7f08003e;
-        public static final int textView5=0x7f080040;
-        public static final int texttoast=0x7f08004b;
-        public static final int toastcustom=0x7f08004a;
-        public static final int tracks=0x7f080045;
-        public static final int tv_title=0x7f080015;
-        public static final int wrap_content=0x7f08000d;
+        public static final int action_settings=0x7f0b004c;
+        public static final int arrow_down=0x7f0b0047;
+        public static final int arrow_up=0x7f0b0043;
+        public static final int book_now=0x7f0b000e;
+        public static final int btn_eliminar_contacto=0x7f0b0017;
+        public static final int buyButton=0x7f0b000a;
+        public static final int buy_now=0x7f0b000f;
+        public static final int buy_with_google=0x7f0b0010;
+        public static final int classic=0x7f0b0011;
+        public static final int container=0x7f0b0025;
+        public static final int dialogo_contacto_lv_contactos=0x7f0b0035;
+        public static final int dialogo_contacto_tv_subtitulo=0x7f0b0034;
+        public static final int drawer_layout=0x7f0b0024;
+        public static final int enviar_alarma_btn_aceptar=0x7f0b0032;
+        public static final int enviar_alarma_iv_alarma=0x7f0b002e;
+        public static final int enviar_alarma_iv_reporte_chofer=0x7f0b0031;
+        public static final int enviar_alarma_iv_reporte_usuario=0x7f0b0030;
+        public static final int footer=0x7f0b0046;
+        public static final int frame_splash=0x7f0b0033;
+        public static final int grayscale=0x7f0b0012;
+        public static final int hazme_el_paro_ll_conecta=0x7f0b0039;
+        public static final int hazme_el_paro_ll_reporta=0x7f0b0037;
+        public static final int header2=0x7f0b0042;
+        public static final int holo_dark=0x7f0b0005;
+        public static final int holo_light=0x7f0b0006;
+        public static final int hybrid=0x7f0b0000;
+        public static final int imageView1=0x7f0b001f;
+        public static final int imageView2=0x7f0b0038;
+        public static final int imageView3=0x7f0b0021;
+        public static final int imageView4=0x7f0b003d;
+        public static final int imageView5=0x7f0b003f;
+        public static final int instrucciones_btn_siguiente=0x7f0b0041;
+        public static final int instrucciones_iv_logo=0x7f0b003b;
+        public static final int iv_icon=0x7f0b0014;
+        public static final int linearLayout1=0x7f0b0020;
+        public static final int linearLayout2=0x7f0b003c;
+        public static final int linearLayoutimagen=0x7f0b003a;
+        public static final int match_parent=0x7f0b000c;
+        public static final int mitaxiregistermanually_ll_contactos=0x7f0b0019;
+        public static final int mitaxiregistermanually_ll_container_infouser_2=0x7f0b001b;
+        public static final int mitaxiregistermanually_sv_container_infouser_emer=0x7f0b0016;
+        public static final int mitaxiregistermanually_tv_label=0x7f0b0023;
+        public static final int monochrome=0x7f0b0013;
+        public static final int my_group=0x7f0b0048;
+        public static final int navigation_drawer=0x7f0b0026;
+        public static final int none=0x7f0b0001;
+        public static final int normal=0x7f0b0002;
+        public static final int pager=0x7f0b0027;
+        public static final int production=0x7f0b0007;
+        public static final int registro_btn_contacto=0x7f0b001d;
+        public static final int registro_btn_guardar=0x7f0b0018;
+        public static final int registro_et_mensaje_emergencia=0x7f0b001e;
+        public static final int registro_et_telefono=0x7f0b001c;
+        public static final int row_lista_tv_info=0x7f0b0049;
+        public static final int safebus_btn_alguien_mas=0x7f0b002b;
+        public static final int safebus_btn_yo=0x7f0b002a;
+        public static final int safebus_ll_enviando_mensaje=0x7f0b002d;
+        public static final int safebus_ll_quien=0x7f0b0029;
+        public static final int safebus_ll_reporte_hecho=0x7f0b002f;
+        public static final int safebus_tv_problemas_titulo=0x7f0b0028;
+        public static final int sandbox=0x7f0b0008;
+        public static final int satellite=0x7f0b0003;
+        public static final int scroll=0x7f0b0044;
+        public static final int section_label=0x7f0b0036;
+        public static final int selectionDetails=0x7f0b000b;
+        public static final int strict_sandbox=0x7f0b0009;
+        public static final int terrain=0x7f0b0004;
+        public static final int textView1=0x7f0b001a;
+        public static final int textView2=0x7f0b002c;
+        public static final int textView3=0x7f0b0022;
+        public static final int textView4=0x7f0b003e;
+        public static final int textView5=0x7f0b0040;
+        public static final int texttoast=0x7f0b004b;
+        public static final int toastcustom=0x7f0b004a;
+        public static final int tracks=0x7f0b0045;
+        public static final int tv_title=0x7f0b0015;
+        public static final int wrap_content=0x7f0b000d;
     }
     public static final class integer {
-        public static final int google_play_services_version=0x7f090000;
+        public static final int google_play_services_version=0x7f080000;
     }
     public static final class layout {
         public static final int action_item=0x7f030000;
@@ -578,20 +578,21 @@ containing a value of this type.
         public static final int toastcustom=0x7f03000d;
     }
     public static final class menu {
-        public static final int global=0x7f0b0000;
-        public static final int hazme_el_paro=0x7f0b0001;
+        public static final int global=0x7f0a0000;
+        public static final int hazme_el_paro=0x7f0a0001;
     }
     public static final class string {
         public static final int accept=0x7f060002;
-        public static final int action_example=0x7f060041;
-        public static final int action_settings=0x7f060042;
-        public static final int app_name=0x7f060023;
-        public static final int atras_salir=0x7f06003a;
-        public static final int btn_conecta=0x7f060037;
+        public static final int action_example=0x7f060042;
+        public static final int action_settings=0x7f060043;
+        public static final int app_id=0x7f060023;
+        public static final int app_name=0x7f060024;
+        public static final int atras_salir=0x7f06003b;
+        public static final int btn_conecta=0x7f060038;
         /**  Bottons 
          */
-        public static final int btn_continuar=0x7f060035;
-        public static final int btn_reporta=0x7f060036;
+        public static final int btn_continuar=0x7f060036;
+        public static final int btn_reporta=0x7f060037;
         /**   Text for notification shown when the Android Wear apps needs to be updated. Only shown on the wearable. [CHAR LIMIT=NONE] 
          */
         public static final int common_android_wear_notification_needs_update_text=0x7f060009;
@@ -694,38 +695,38 @@ containing a value of this type.
         public static final int create_calendar_message=0x7f060005;
         public static final int create_calendar_title=0x7f060004;
         public static final int decline=0x7f060003;
-        public static final int dialogo_btn_aceptar=0x7f060038;
-        public static final int eliminar_contacto=0x7f06002b;
+        public static final int dialogo_btn_aceptar=0x7f060039;
+        public static final int eliminar_contacto=0x7f06002c;
         /**  Dialogos 
          */
-        public static final int espere=0x7f060039;
-        public static final int instrucciones_contacto=0x7f06002c;
-        public static final int mensaje_emergencia=0x7f060029;
-        public static final int mensaje_emergencia_hint=0x7f06002a;
-        public static final int navigation_drawer_close=0x7f060040;
-        public static final int navigation_drawer_open=0x7f06003f;
-        public static final int notificar_chofer=0x7f060045;
-        public static final int notificar_chofer_familia=0x7f060044;
-        public static final int problemas_titulo=0x7f060043;
-        public static final int registro_btn_guardar=0x7f06002d;
-        public static final int registro_correo_incorrecto=0x7f060034;
-        public static final int registro_correo_vacio=0x7f060031;
-        public static final int registro_et_telefono=0x7f060028;
-        public static final int registro_selecciona_uno=0x7f06002f;
-        public static final int registro_telefono_incorrecto=0x7f060033;
-        public static final int registro_telefono_largo=0x7f060032;
-        public static final int registro_telefono_vacio=0x7f060030;
-        public static final int registro_titulo=0x7f06002e;
+        public static final int espere=0x7f06003a;
+        public static final int instrucciones_contacto=0x7f06002d;
+        public static final int mensaje_emergencia=0x7f06002a;
+        public static final int mensaje_emergencia_hint=0x7f06002b;
+        public static final int navigation_drawer_close=0x7f060041;
+        public static final int navigation_drawer_open=0x7f060040;
+        public static final int notificar_chofer=0x7f060046;
+        public static final int notificar_chofer_familia=0x7f060045;
+        public static final int problemas_titulo=0x7f060044;
+        public static final int registro_btn_guardar=0x7f06002e;
+        public static final int registro_correo_incorrecto=0x7f060035;
+        public static final int registro_correo_vacio=0x7f060032;
+        public static final int registro_et_telefono=0x7f060029;
+        public static final int registro_selecciona_uno=0x7f060030;
+        public static final int registro_telefono_incorrecto=0x7f060034;
+        public static final int registro_telefono_largo=0x7f060033;
+        public static final int registro_telefono_vacio=0x7f060031;
+        public static final int registro_titulo=0x7f06002f;
         public static final int store_picture_message=0x7f060001;
         public static final int store_picture_title=0x7f060000;
-        public static final int texto_instrucciones_uno=0x7f060024;
-        public static final int texto_numero_1=0x7f060025;
-        public static final int texto_numero_2=0x7f060026;
-        public static final int texto_numero_3=0x7f060027;
-        public static final int title_activity_hazme_el_paro=0x7f06003b;
-        public static final int title_section1=0x7f06003c;
-        public static final int title_section2=0x7f06003d;
-        public static final int title_section3=0x7f06003e;
+        public static final int texto_instrucciones_uno=0x7f060025;
+        public static final int texto_numero_1=0x7f060026;
+        public static final int texto_numero_2=0x7f060027;
+        public static final int texto_numero_3=0x7f060028;
+        public static final int title_activity_hazme_el_paro=0x7f06003c;
+        public static final int title_section1=0x7f06003d;
+        public static final int title_section2=0x7f06003e;
+        public static final int title_section3=0x7f06003f;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
          */

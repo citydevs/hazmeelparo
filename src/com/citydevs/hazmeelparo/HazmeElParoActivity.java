@@ -95,10 +95,7 @@ public class HazmeElParoActivity extends Activity implements
 	public void onNavigationDrawerItemSelected(int position) {
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getFragmentManager();
-		fragmentManager
-				.beginTransaction()
-				.replace(R.id.container,
-						PlaceholderFragment.newInstance(position + 1)).commit();
+		fragmentManager.beginTransaction().replace(R.id.container,PlaceholderFragment.newInstance(position + 1)).commit();
 	}
 
 	public void onSectionAttached(int number) {
@@ -179,8 +176,17 @@ public class HazmeElParoActivity extends Activity implements
 				
 				@Override
 				public void onClick(View v) {
-					 showDialogQuienTieneProblemas().show();
-					
+					 showDialogQuienTieneProblemas().show();	
+				}
+			});
+			
+			LinearLayout hazme_el_paro_ll_conecta = (LinearLayout)rootView.findViewById(R.id.hazme_el_paro_ll_conecta);
+			hazme_el_paro_ll_conecta.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+				//	startActivity(new Intent(activity, FacebookLoginActivity.class));
+
 				}
 			});
 			return rootView;
@@ -193,10 +199,6 @@ public class HazmeElParoActivity extends Activity implements
 					.getInt(ARG_SECTION_NUMBER));
 		}
 	
-	
-	
-	
-	
 	/*Dialogos*/
 	/**
 	 * Dialogo para asegurar que quieres salir de la app
@@ -207,7 +209,7 @@ public class HazmeElParoActivity extends Activity implements
 	public  Dialog showDialogQuienTieneProblemas() {
 	
 		
-		ActionItem addItem      = new ActionItem(TOCO, "Mirada\nLasciba", getResources().getDrawable(R.drawable.ic_launcher_tocar));
+		ActionItem addItem = new ActionItem(TOCO, "Mirada\nLasciba", getResources().getDrawable(R.drawable.ic_launcher_tocar));
         ActionItem acceptItem   = new ActionItem(VERBAL, "Agresión\nVerbal", getResources().getDrawable(R.drawable.ic_launcher_agredir));
         ActionItem uploadItem   = new ActionItem(MIRO, "Tocarmiento", getResources().getDrawable(R.drawable.ic_launcher_mirar));
         ActionItem exhibicionismotItem   = new ActionItem(EXCIVO, "Exhibición\nSexual", getResources().getDrawable(R.drawable.ic_launcher_excibir));
@@ -385,6 +387,9 @@ public class HazmeElParoActivity extends Activity implements
 	        super.onPostExecute(result);  
 	    }
 	}
+	
+	
+	
 	
 
 }
