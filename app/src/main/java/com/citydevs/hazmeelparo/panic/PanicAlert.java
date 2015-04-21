@@ -1,6 +1,8 @@
 package com.citydevs.hazmeelparo.panic;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Vibrator;
 import android.telephony.SmsManager;
 /**
@@ -47,7 +49,7 @@ public class PanicAlert {
 	/**
 	 * Si es por sms o correo
 	 */
-	public static void contactaAlMAndo() {
+	public  void contactaAlMAndo() {
 		
 		
 	}
@@ -56,9 +58,10 @@ public class PanicAlert {
     /**
      * Si es por sms o correo
      */
-    public static void contactaAPolicia() {
+    public  void contactaAPolicia() {
 
-
+        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "55335533"));
+        context.startActivity(intent);
     }
 
 

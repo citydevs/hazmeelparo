@@ -537,10 +537,10 @@ public class HazmeElParoActivity extends Activity implements
         switch (tipo) {
             case ENVIAR_ALARMA_CHOFER:
                 if(Boolean.parseBoolean(new Utils(activity).getPreferenciasCAS())){
-                    PanicAlert.contactaAPolicia();
+                    new PanicAlert(activity).contactaAPolicia();
                 }
                 if(Boolean.parseBoolean(new Utils(activity).getPreferenciasContactarMando())){
-                    PanicAlert.contactaAlMAndo();
+                    new PanicAlert(activity).contactaAlMAndo();
                 }
                 break;
             case ENVIAR_ALARMA_FAMILIAR_CHOFER:
@@ -548,10 +548,10 @@ public class HazmeElParoActivity extends Activity implements
                     PanicAlert.sendSMS(info[0], activity.getString(R.string.mensaje_emergencia));
                 }
                 if(Boolean.parseBoolean(new Utils(activity).getPreferenciasCAS())){
-                    PanicAlert.contactaAPolicia();
+                    new PanicAlert(activity).contactaAPolicia();
                 }
                 if(Boolean.parseBoolean(new Utils(activity).getPreferenciasContactarMando())){
-                    PanicAlert.contactaAlMAndo();
+                    new PanicAlert(activity).contactaAlMAndo();
                 }
 
                 break;
