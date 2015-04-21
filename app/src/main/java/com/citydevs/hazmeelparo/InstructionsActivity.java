@@ -1,8 +1,5 @@
 package com.citydevs.hazmeelparo;
 
-import java.util.ArrayList;
-import java.util.Locale;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -28,8 +25,12 @@ import android.widget.ListView;
 
 import com.citydevs.hazmeelparo.contact.ContactoActivity;
 import com.citydevs.hazmeelparo.contact.MySimpleArrayAdapter;
+import com.citydevs.hazmeelparo.interfaces.OnListenerCambiarTexto;
 import com.citydevs.hazmeelparo.interfaces.OnListenerOpenContact;
 import com.citydevs.hazmeelparo.utils.Utils;
+
+import java.util.ArrayList;
+import java.util.Locale;
 
 public class InstructionsActivity extends Activity implements OnListenerOpenContact {
 	private static Point p;
@@ -149,7 +150,7 @@ public class InstructionsActivity extends Activity implements OnListenerOpenCont
 				
 			} else if (index_view == 1) {
 				ContactoActivity contacto = new ContactoActivity(getActivity());
-
+                contacto.setOrigen("REGISTRO");
 				rootView = contacto.getView();
 				
 				index_view = 0;
@@ -196,10 +197,7 @@ public class InstructionsActivity extends Activity implements OnListenerOpenCont
 	 * @author mikesaurio
 	 *
 	 */
-	 public interface OnListenerCambiarTexto
-	    {
-	        void onListenerCambiarTexto(String telefono);
-	    }
+
 	
 	 /**
 	  * escucha para poder cambair el texto de la pagina 2

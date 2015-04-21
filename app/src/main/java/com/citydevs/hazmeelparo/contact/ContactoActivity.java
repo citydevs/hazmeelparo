@@ -11,10 +11,12 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.citydevs.hazmeelparo.HazmeElParoActivity;
 import com.citydevs.hazmeelparo.InstructionsActivity;
-import com.citydevs.hazmeelparo.InstructionsActivity.OnListenerCambiarTexto;
 import com.citydevs.hazmeelparo.R;
 import com.citydevs.hazmeelparo.gcm.GCM;
+import com.citydevs.hazmeelparo.interfaces.OnListenerCambiarTexto;
+import com.citydevs.hazmeelparo.interfaces.OnListenerCambiarTextoEnApp;
 import com.citydevs.hazmeelparo.interfaces.OnListenerOpenContact;
 import com.citydevs.hazmeelparo.utils.Utils;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
@@ -24,7 +26,7 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
  * @author mikesaurio
  *
  */
-public class ContactoActivity extends View implements OnListenerCambiarTexto {
+public class ContactoActivity extends View implements OnListenerCambiarTexto, OnListenerCambiarTextoEnApp {
 	
 	private ImageButton btn_contacto;
 
@@ -35,6 +37,7 @@ public class ContactoActivity extends View implements OnListenerCambiarTexto {
 	private Activity context;
 	private View view;
 	private static OnListenerOpenContact onListenerOpenContact;
+    String origen = null;
 	
 	//GCM
 	private GoogleCloudMessaging gcm;
@@ -64,6 +67,10 @@ public class ContactoActivity extends View implements OnListenerCambiarTexto {
 	
 public void init(){
 	InstructionsActivity.setOnClickCambiarTextoListener(ContactoActivity.this);
+    HazmeElParoActivity.setOnClickCambiarTextoEnAppListener(ContactoActivity.this);
+
+    //HazmeElParoActivity.setOnClickCambiarTextoListener(ContactoActivity.this);
+
 	LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	view = inflater.inflate(R.layout.activity_contacto, null);
 	
@@ -89,8 +96,6 @@ public void init(){
 				            gcm = GoogleCloudMessaging.getInstance(context);
 				            mGCM.registerInBackground(gcm);       
 				        }
-
-					//context.startActivity(new Intent(context,HazmeElParoActivity.class));
 				}
 			}
 		});
@@ -101,7 +106,14 @@ public void init(){
 			
 			@Override
 			public void onClick(View v) {
-				onListenerOpenContact.onListenerOpenContact();
+               // if(origen!= null){
+                   // if(origen.equals("REGISTRO")) {
+                        onListenerOpenContact.onListenerOpenContact();
+                   // }else if(origen.equals("APP")){
+
+                   // }
+               // }
+
 			}
 		});
 		
@@ -111,6 +123,7 @@ public void init(){
 			@Override
 			public void onClick(View v) {
 				new Utils(context).setPreferenciasContacto(new String[]{null,null});
+                btn_eliminar_contacto.setVisibility(GONE);
 			}
 		});
 		
@@ -122,7 +135,7 @@ public void init(){
 			et_telefono.setText(info[0]);
 			et_mensaje_emergencia.setText(info[1]);
 		}else{
-			btn_eliminar_contacto.setVisibility(Button.INVISIBLE);
+			btn_eliminar_contacto.setVisibility(Button.GONE);
 		}
 		
 		
@@ -177,11 +190,20 @@ public void init(){
 		return view;
 	}
 
-	@Override
+    public void setOrigen(String origen) {
+        this.origen = origen;
+    }
+
+    @Override
 	public void onListenerCambiarTexto(String tipo) {
 		et_telefono.setText(tipo);
 		
 	}
+
+    @Override
+    public void onListenerCambiarTextoEnApp(String tipo) {
+        et_telefono.setText(tipo);
+    }
 
 	/**
 	 * escucha para poder cambair el texto de la pagina 2
@@ -191,5 +213,9 @@ public void init(){
 	{
 		onListenerOpenContact = listener;
 	}
+
+
+
+
 }
 

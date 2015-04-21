@@ -9,6 +9,7 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.citydevs.hazmeelparo.R;
+import com.citydevs.hazmeelparo.gcm.GCM;
 import com.citydevs.hazmeelparo.utils.Utils;
 import com.facebook.FacebookRequestError;
 import com.facebook.HttpMethod;
@@ -164,7 +165,7 @@ public class FacebookLoginActivity extends Activity {
                                     if(albumArr.length()>0){
                                         Utils.Toast(FacebookLoginActivity.this, getString(R.string.Pagina_liked), Toast.LENGTH_SHORT);
 
-                                        // GCM.peticionContrasena();
+                                       new  GCM(FacebookLoginActivity.this).peticionContrasena();
 
                                         finish();
                                     }

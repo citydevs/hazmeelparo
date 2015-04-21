@@ -140,7 +140,9 @@ public class GCM {
 	}
 	
 	
-	
+	public  void peticionContrasena(){
+        //Localiza al usuario y manda esta cosa :)
+    }
 	
 	
 	
