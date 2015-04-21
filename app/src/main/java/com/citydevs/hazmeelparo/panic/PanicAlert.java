@@ -49,9 +49,13 @@ public class PanicAlert {
 	/**
 	 * Si es por sms o correo
 	 */
-	public  void contactaAlMAndo() {
-		
-		
+	public  void contactaAlMAndo(String mensaje) {
+        try{
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage("553030303030", null, mensaje, null, null);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 	}
 
 

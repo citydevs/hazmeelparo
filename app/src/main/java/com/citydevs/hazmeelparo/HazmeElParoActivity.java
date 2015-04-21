@@ -6,6 +6,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Point;
@@ -35,6 +37,7 @@ import com.citydevs.hazmeelparo.contact.MySimpleArrayAdapter;
 import com.citydevs.hazmeelparo.facebook.FacebookLoginActivity;
 import com.citydevs.hazmeelparo.interfaces.OnListenerCambiarTextoEnApp;
 import com.citydevs.hazmeelparo.interfaces.OnListenerOpenContact;
+import com.citydevs.hazmeelparo.localizacion.ServicioLocalizacion;
 import com.citydevs.hazmeelparo.panic.PanicAlert;
 import com.citydevs.hazmeelparo.popup.ActionItem;
 import com.citydevs.hazmeelparo.popup.QuickAction;
@@ -57,6 +60,8 @@ public class HazmeElParoActivity extends Activity implements
 	 * {@link #restoreActionBar()}.
 	 */
 	private CharSequence mTitle;
+    private ArrayList<String> pointsLat;
+    private ArrayList<String> pointsLon;
 	private static AlertDialog customDialog = null;
 	protected static Activity activity;
 	private static Point p;
@@ -379,7 +384,7 @@ public class HazmeElParoActivity extends Activity implements
 
 		@Override
 	    protected void onPreExecute() {
-	    
+
 	    	ll_quien.setVisibility(LinearLayout.GONE);
 			ll_enviando_mensaje.setVisibility(LinearLayout.VISIBLE);
 			tv_problemas_titulo.setText("Enviando alarma...");
@@ -401,10 +406,17 @@ public class HazmeElParoActivity extends Activity implements
 	    @Override
 	    protected Boolean doInBackground(Integer... params) {	
 	        try {
-	        	
-	        /*	if(new Utils(activity).getPreferenciasMando()||aviso_a==2){
+
+                if(Utils.hasInternet(activity)) {
+                    if(Boolean.parseBoolean(new Utils(activity).getPreferenciasContactarMando())){
+                        activity.startService(new Intent(activity, ServicioLocalizacion.class));
+                    }
+                }
+
+
+	        /*	if(new Utils(activity).getPreferenciasMando()){
 	        		Utils.doHttpConnection("https://cryptic-peak-2139.herokuapp.com/api/client_panic?email="
-		        			+UserInfo.getEmail(activity)
+		        			+ UserInfo.getEmail(activity)
 		        			+"&placa="+new Utils(activity).getPreferenciasPlaca()[0]);
 				}*/
 	        	
@@ -539,9 +551,7 @@ public class HazmeElParoActivity extends Activity implements
                 if(Boolean.parseBoolean(new Utils(activity).getPreferenciasCAS())){
                     new PanicAlert(activity).contactaAPolicia();
                 }
-                if(Boolean.parseBoolean(new Utils(activity).getPreferenciasContactarMando())){
-                    new PanicAlert(activity).contactaAlMAndo();
-                }
+
                 break;
             case ENVIAR_ALARMA_FAMILIAR_CHOFER:
                 if(Boolean.parseBoolean(new Utils(activity).getPreferenciasMensaje())) {
@@ -550,9 +560,7 @@ public class HazmeElParoActivity extends Activity implements
                 if(Boolean.parseBoolean(new Utils(activity).getPreferenciasCAS())){
                     new PanicAlert(activity).contactaAPolicia();
                 }
-                if(Boolean.parseBoolean(new Utils(activity).getPreferenciasContactarMando())){
-                    new PanicAlert(activity).contactaAlMAndo();
-                }
+
 
                 break;
 
@@ -599,4 +607,23 @@ public class HazmeElParoActivity extends Activity implements
 
         onListenerCambiarTextoEnApp = listener;
     }
+
+    /**
+     * manejo de transmiciones
+     */
+
+    private BroadcastReceiver onBroadcast = new BroadcastReceiver() {
+
+
+
+        @Override
+        public void onReceive(Context ctxt, Intent t) {
+
+            pointsLat = t.getStringArrayListExtra("latitud");
+            pointsLon = t.getStringArrayListExtra("longitud");
+
+            new PanicAlert(activity).contactaAlMAndo("Mensaje de emergencia en "+pointsLat.get(pointsLat.size())+","+pointsLon.get(pointsLon.size()));
+
+        }
+    };
 }
