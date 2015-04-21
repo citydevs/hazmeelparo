@@ -106,14 +106,7 @@ public void init(){
 			
 			@Override
 			public void onClick(View v) {
-               // if(origen!= null){
-                   // if(origen.equals("REGISTRO")) {
                         onListenerOpenContact.onListenerOpenContact();
-                   // }else if(origen.equals("APP")){
-
-                   // }
-               // }
-
 			}
 		});
 		
@@ -124,6 +117,7 @@ public void init(){
 			public void onClick(View v) {
 				new Utils(context).setPreferenciasContacto(new String[]{null,null});
                 btn_eliminar_contacto.setVisibility(GONE);
+                et_telefono.setText("");
 			}
 		});
 		

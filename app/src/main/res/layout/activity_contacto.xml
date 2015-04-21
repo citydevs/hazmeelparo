@@ -15,6 +15,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_weight="1"
+        android:paddingTop="5dp"
         android:fillViewport="true"
         android:overScrollMode="never"
         android:scrollbars="vertical" >

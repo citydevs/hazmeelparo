@@ -83,8 +83,48 @@ public class Utils {
 		SharedPreferences prefs = activity.getSharedPreferences("PreferenciasSafeBus", Context.MODE_PRIVATE);
 		return prefs.getString("gcm", null);
 	}
-	
-	/**
+
+    public void setPreferenciasCAS(String CAS) {
+
+        SharedPreferences prefs = activity.getSharedPreferences("PreferenciasSafeBus", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("cas", CAS);
+        editor.commit();
+    }
+
+    public String getPreferenciasCAS() {
+        SharedPreferences prefs = activity.getSharedPreferences("PreferenciasSafeBus", Context.MODE_PRIVATE);
+        return prefs.getString("cas", "true");
+    }
+
+
+    public void setPreferenciasMensaje(String message) {
+
+        SharedPreferences prefs = activity.getSharedPreferences("PreferenciasSafeBus", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("mensaje", message);
+        editor.commit();
+    }
+
+    public String getPreferenciasMensaje() {
+        SharedPreferences prefs = activity.getSharedPreferences("PreferenciasSafeBus", Context.MODE_PRIVATE);
+        return prefs.getString("mensaje","true");
+    }
+
+
+    public void setPreferenciasContactarMando(String mando) {
+        SharedPreferences prefs = activity.getSharedPreferences("PreferenciasSafeBus", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("mando", mando);
+        editor.commit();
+    }
+
+    public String getPreferenciasContactarMando() {
+        SharedPreferences prefs = activity.getSharedPreferences("PreferenciasSafeBus", Context.MODE_PRIVATE);
+        return prefs.getString("mando","true");
+    }
+
+    /**
 	 * metodo que vaida que el telefono tenga internet
 	 * 
 	 * @param a

@@ -28,6 +28,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.citydevs.hazmeelparo.config.Configuracion;
 import com.citydevs.hazmeelparo.contact.ContactoActivity;
 import com.citydevs.hazmeelparo.contact.MySimpleArrayAdapter;
 import com.citydevs.hazmeelparo.facebook.FacebookLoginActivity;
@@ -218,6 +219,10 @@ public class HazmeElParoActivity extends Activity implements
                 ContactoActivity contacto = new ContactoActivity(getActivity());
                 contacto.setOrigen("APP");
                 rootView = contacto.getView();
+            }
+            else if(index == 3) {
+                Configuracion configuracion = new Configuracion(getActivity());
+                rootView = configuracion.getView();
             }
 
 			return rootView;
