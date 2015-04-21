@@ -73,7 +73,7 @@ public class HazmeElParoActivity extends Activity implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		if (new Utils(HazmeElParoActivity.this).getPreferenciasGCM()==null) {//si ya registro
+		if (new Utils(HazmeElParoActivity.this).getPreferenciasGCM()!=null) {//si ya registro
 			startActivity(new Intent().setClass(HazmeElParoActivity.this, SplashActivity.class));
 			this.finish();
 		} 

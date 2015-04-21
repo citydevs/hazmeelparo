@@ -86,12 +86,12 @@ public void init(){
 
 					 mGCM= new GCM(context);
 
-			            Log.i("*****************", mGCM.checkPlayServices()+"");
+			            Log.i("*****************", mGCM.checkPlayServices() + "");
 					  if (mGCM.checkPlayServices()) {
 				            gcm = GoogleCloudMessaging.getInstance(context);
 				            mGCM.registerInBackground(gcm);       
 				        }
-					
+
 					//context.startActivity(new Intent(context,HazmeElParoActivity.class));
 				}
 			}
