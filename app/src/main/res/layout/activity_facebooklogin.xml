@@ -81,19 +81,22 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/login_button"
-            android:layout_width="wrap_content"
+        <com.facebook.widget.LoginButton
+            android:id="@+id/fb_login_button"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp" />
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            facebook:confirm_logout="false"
+            facebook:fetch_user_info="true" />
 
-        <com.facebook.share.widget.LikeView
-            android:id="@+id/like_view"
+        <com.facebook.widget.LikeView
+            android:id="@+id/facebook_btn_post"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Button"
+            android:visibility="gone" />
+
 
     </LinearLayout>
 
