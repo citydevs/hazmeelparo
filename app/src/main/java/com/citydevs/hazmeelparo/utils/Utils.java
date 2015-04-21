@@ -102,13 +102,13 @@ public class Utils {
 
         SharedPreferences prefs = activity.getSharedPreferences("PreferenciasSafeBus", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("mensaje", message);
+        editor.putString("mensajeContacto", message);
         editor.commit();
     }
 
     public String getPreferenciasMensaje() {
         SharedPreferences prefs = activity.getSharedPreferences("PreferenciasSafeBus", Context.MODE_PRIVATE);
-        return prefs.getString("mensaje","true");
+        return prefs.getString("mensajeContacto","true");
     }
 
 

@@ -89,7 +89,7 @@ public void init(){
 				if(validaEditText()){
 					new Utils(context).setPreferenciasContacto(new String[]{et_telefono.getText().toString(),et_mensaje_emergencia.getText().toString()});
 					Utils.Toast(context, "Contacto guardado", Toast.LENGTH_SHORT);
-
+                    new Utils(context).setPreferenciasMensaje("true");
 					 mGCM= new GCM(context);
 
 					  if (mGCM.checkPlayServices()) {
@@ -118,6 +118,7 @@ public void init(){
 				new Utils(context).setPreferenciasContacto(new String[]{null,null});
                 btn_eliminar_contacto.setVisibility(GONE);
                 et_telefono.setText("");
+                new Utils(context).setPreferenciasMensaje("false");
 			}
 		});
 		
