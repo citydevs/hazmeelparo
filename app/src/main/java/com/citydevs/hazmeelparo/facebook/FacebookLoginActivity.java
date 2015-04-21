@@ -110,6 +110,7 @@ public class FacebookLoginActivity extends Activity {
     public void onResume() {
         super.onResume();
         uiHelper.onResume();
+        likePage();
 
     }
 
@@ -130,6 +131,7 @@ public class FacebookLoginActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         uiHelper.onActivityResult(requestCode, resultCode, data);
         LikeView.handleOnActivityResult(this, requestCode, resultCode, data);
+        likePage();
     }
 
 
