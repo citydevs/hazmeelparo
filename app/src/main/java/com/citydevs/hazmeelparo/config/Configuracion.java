@@ -65,7 +65,7 @@ public class Configuracion extends View {
             }
         });
 
-        Switch mySwitch_Mando = (Switch) view.findViewById(R.id.switch_contacto);
+        Switch mySwitch_Mando = (Switch) view.findViewById(R.id.switch_mando);
         mySwitch_Mando.setChecked(Boolean.parseBoolean(new Utils(context).getPreferenciasContactarMando()));
         mySwitch_Mando.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 

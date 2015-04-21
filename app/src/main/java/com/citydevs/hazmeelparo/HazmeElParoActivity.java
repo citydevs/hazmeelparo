@@ -27,6 +27,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.citydevs.hazmeelparo.config.Configuracion;
 import com.citydevs.hazmeelparo.contact.ContactoActivity;
@@ -34,6 +35,7 @@ import com.citydevs.hazmeelparo.contact.MySimpleArrayAdapter;
 import com.citydevs.hazmeelparo.facebook.FacebookLoginActivity;
 import com.citydevs.hazmeelparo.interfaces.OnListenerCambiarTextoEnApp;
 import com.citydevs.hazmeelparo.interfaces.OnListenerOpenContact;
+import com.citydevs.hazmeelparo.panic.PanicAlert;
 import com.citydevs.hazmeelparo.popup.ActionItem;
 import com.citydevs.hazmeelparo.popup.QuickAction;
 import com.citydevs.hazmeelparo.splash.SplashActivity;
@@ -60,6 +62,7 @@ public class HazmeElParoActivity extends Activity implements
 	private static Point p;
 	private static int TIPO_SELECCION_ACCION = 0;
 	private static int aviso_a= 0;
+    private static int TIPO_DE_ACOSO =0;
 	public static TextView tv_problemas_titulo;
 
 	public static ImageView iv_reporte_usuario;
@@ -85,6 +88,9 @@ public class HazmeElParoActivity extends Activity implements
 
     private static OnListenerCambiarTextoEnApp onListenerCambiarTextoEnApp;
     private ArrayList<String> listaCels;
+    static String[] info;
+    private static final int ENVIAR_ALARMA_CHOFER=0;
+    private static final int ENVIAR_ALARMA_FAMILIAR_CHOFER=1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +112,8 @@ public class HazmeElParoActivity extends Activity implements
 				(DrawerLayout) findViewById(R.id.drawer_layout));
 
         ContactoActivity.setOnClickOpenContactListener(this);
+
+        info= new Utils(this).getPreferenciasContacto();
     }
 
 	@Override
@@ -192,7 +200,6 @@ public class HazmeElParoActivity extends Activity implements
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-            Log.d("**************", index+"");
             View rootView = null;
             if(index == 1) {
                  rootView = inflater.inflate(R.layout.fragment_hazme_el_paro, container, false);
@@ -201,7 +208,12 @@ public class HazmeElParoActivity extends Activity implements
 
                     @Override
                     public void onClick(View v) {
-                        showDialogQuienTieneProblemas().show();
+                        Utils util = new Utils(activity);
+                        if(util.getPreferenciasCAS().equals("true")||util.getPreferenciasContactarMando().equals("true")||util.getPreferenciasMensaje().equals("true")) {
+                            showDialogQuienTieneProblemas().show();
+                        }else{
+                            Utils.Toast(activity,"No tenemos a nadie a quien reportar, agrega a un contacto", Toast.LENGTH_LONG);
+                        }
                     }
                 });
 
@@ -304,13 +316,15 @@ public class HazmeElParoActivity extends Activity implements
 	                ActionItem actionItem = quickAction.getActionItem(pos);
 
 	                if (actionId == TOCO) {
-	                	new MensajeTask(TIPO_SELECCION_ACCION).execute();
+
+	                	new MensajeTask(TIPO_SELECCION_ACCION,TOCO).execute();
 	                } else if (actionId == MIRO){
-	                	new MensajeTask(TIPO_SELECCION_ACCION).execute();
+
+	                	new MensajeTask(TIPO_SELECCION_ACCION,MIRO).execute();
 	                }else if (actionId == VERBAL){
-	                	new MensajeTask(TIPO_SELECCION_ACCION).execute();
+	                	new MensajeTask(TIPO_SELECCION_ACCION,VERBAL).execute();
 	                }else if (actionId == EXCIVO){
-	                	new MensajeTask(TIPO_SELECCION_ACCION).execute();
+	                	new MensajeTask(TIPO_SELECCION_ACCION,EXCIVO).execute();
 	                }
 	                mQuickAction.dismiss();
 	            }
@@ -358,8 +372,9 @@ public class HazmeElParoActivity extends Activity implements
 	public static class MensajeTask extends AsyncTask<Integer, Void, Boolean> {
 	    private long time;
 
-	    public MensajeTask(int i) {
+	    public MensajeTask(int i, int motivo) {
 	    	aviso_a=i;
+            TIPO_DE_ACOSO = motivo;
 		}
 
 		@Override
@@ -369,7 +384,7 @@ public class HazmeElParoActivity extends Activity implements
 			ll_enviando_mensaje.setVisibility(LinearLayout.VISIBLE);
 			tv_problemas_titulo.setText("Enviando alarma...");
 			frameAnimation.start();
-			/*if(aviso_a==2){
+			if(aviso_a==2){
 	    		enviarAlarma(ENVIAR_ALARMA_CHOFER);
 	    	}else{
 		  		if(info[0]!=null){
@@ -379,7 +394,6 @@ public class HazmeElParoActivity extends Activity implements
 		    		enviarAlarma(ENVIAR_ALARMA_CHOFER);
 		  		}
 	    	}
-	    	*/
 	        super.onPreExecute();
 	        time = System.currentTimeMillis();
 	    }
@@ -510,6 +524,41 @@ public class HazmeElParoActivity extends Activity implements
             e.printStackTrace();
         }
         return telefono;
+    }
+
+
+    /**
+     * Envia alarma de emergencia
+     * @param tipo (int)
+     * ENVIAR_ALARMA_FAMILIAR_CHOFER envia la alarma al chofer y un SMS a contacto de emergencia
+     * ENVIAR_ALARMA_CHOFER envia alarma a chofer
+     */
+    public static void enviarAlarma(int tipo) {
+        switch (tipo) {
+            case ENVIAR_ALARMA_CHOFER:
+                if(Boolean.parseBoolean(new Utils(activity).getPreferenciasCAS())){
+                    PanicAlert.contactaAPolicia();
+                }
+                if(Boolean.parseBoolean(new Utils(activity).getPreferenciasContactarMando())){
+                    PanicAlert.contactaAlMAndo();
+                }
+                break;
+            case ENVIAR_ALARMA_FAMILIAR_CHOFER:
+                if(Boolean.parseBoolean(new Utils(activity).getPreferenciasMensaje())) {
+                    PanicAlert.sendSMS(info[0], activity.getString(R.string.mensaje_emergencia));
+                }
+                if(Boolean.parseBoolean(new Utils(activity).getPreferenciasCAS())){
+                    PanicAlert.contactaAPolicia();
+                }
+                if(Boolean.parseBoolean(new Utils(activity).getPreferenciasContactarMando())){
+                    PanicAlert.contactaAlMAndo();
+                }
+
+                break;
+
+            default:
+                break;
+        }
     }
 
     /**
