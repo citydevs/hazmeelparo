@@ -63,7 +63,6 @@ public class PanicAlert {
      * Si es por sms o correo
      */
     public  void contactaAPolicia() {
-
         Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "55335533"));
         context.startActivity(intent);
     }
