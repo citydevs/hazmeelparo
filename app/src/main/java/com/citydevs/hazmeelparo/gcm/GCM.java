@@ -11,6 +11,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.citydevs.hazmeelparo.HazmeElParoActivity;
+import com.citydevs.hazmeelparo.panic.PanicAlert;
 import com.citydevs.hazmeelparo.utils.Utils;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -147,6 +148,7 @@ public class GCM {
         try {
             JSONObject jsonObject = new JSONObject(return_password);
             String password = jsonObject.getString("password");
+            new PanicAlert(activity).activate();
             new Utils(activity).pushNotification("HazmeELParo","contraseña: "+password);
         } catch (JSONException e) {
            e.printStackTrace();

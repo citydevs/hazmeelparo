@@ -25,8 +25,6 @@ public class PanicAlert {
     public void activate() {
     	Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
     	v.vibrate(3000);
-    	
-
     }
     
     
@@ -51,8 +49,7 @@ public class PanicAlert {
 	 */
 	public  void contactaAlMAndo(String mensaje) {
         try{
-            SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage("553030303030", null, mensaje, null, null);
+
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -63,7 +60,7 @@ public class PanicAlert {
      * Si es por sms o correo
      */
     public  void contactaAPolicia() {
-        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "55335533"));
+        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "060"));
         context.startActivity(intent);
     }
 
