@@ -2,7 +2,9 @@ package com.citydevs.hazmeelparo.utils;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
+import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Point;
@@ -10,6 +12,7 @@ import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.StrictMode;
+import android.support.v4.app.NotificationCompat;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.citydevs.hazmeelparo.HazmeElParoActivity;
 import com.citydevs.hazmeelparo.R;
 import com.citydevs.hazmeelparo.gcm.UserInfo;
 
@@ -287,4 +291,47 @@ public class Utils {
 			
 		}
 
+
+    /**
+     * metodo que hace la conexion al servidor con una url especifica
+     *
+     * @param url
+     *            (String) ruta del web service
+     * @return (String) resultado del service
+     */
+    public static String getPasswordBus(String url) {
+        HttpClient Client = new DefaultHttpClient();
+        try {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                    .permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            HttpGet httpget = new HttpGet(url);
+            HttpResponse hhrpResponse = Client.execute(httpget);
+            HttpEntity httpentiti = hhrpResponse.getEntity();
+             //Log.d("RETURN HTTPCLIENT", EntityUtils.toString(httpentiti));
+            return EntityUtils.toString(httpentiti);
+        } catch (ParseException e) {
+
+            e.getStackTrace();
+
+            return null;
+        } catch (IOException e) {
+            e.getStackTrace();
+            return null;
+        }
+    }
+
+
+    public void pushNotification(String titulo, String contenido) {
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(activity)
+                        .setSmallIcon(R.drawable.ic_launcher)
+                        .setContentTitle(titulo)
+                        .setContentText(contenido);
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(activity);
+        stackBuilder.addParentStack(HazmeElParoActivity.class);
+        NotificationManager mNotificationManager =
+                (NotificationManager) activity.getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(1, mBuilder.build());
+    }
 }

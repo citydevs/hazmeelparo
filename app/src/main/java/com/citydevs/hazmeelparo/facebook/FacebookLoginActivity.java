@@ -150,7 +150,6 @@ public class FacebookLoginActivity extends Activity {
         if (session != null) {
             Request likeRequest = new Request(session,
                     "/me/likes/775396332498712",
-                    //"/me",
                     null,
                     HttpMethod.GET,
                     new Request.Callback() {
@@ -165,7 +164,7 @@ public class FacebookLoginActivity extends Activity {
                                     if(albumArr.length()>0){
                                         Utils.Toast(FacebookLoginActivity.this, getString(R.string.Pagina_liked), Toast.LENGTH_SHORT);
 
-                                       new  GCM(FacebookLoginActivity.this).peticionContrasena();
+                                       new GCM(FacebookLoginActivity.this).peticionContrasena();
 
                                         finish();
                                     }

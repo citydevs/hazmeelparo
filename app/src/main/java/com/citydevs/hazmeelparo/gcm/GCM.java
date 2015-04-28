@@ -16,6 +16,9 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -72,14 +75,11 @@ public class GCM {
 			  
 	    	@Override
 			protected void onPreExecute() {
-                Log.d("*******************", gcm+"");
 	    	pd = Utils.anillo(activity, pd);
 	    	pd.show();   
 	    		 if (gcm == null) {
-                     Log.d("*******************", "gcm _nill");
 	    			 gcm_ = GoogleCloudMessaging.getInstance(activity);
 	                }else{
-                     Log.d("*******************", "gcm _ NO nill");
 	                 gcm_ = gcm;
 	                }
 				super.onPreExecute();
@@ -138,10 +138,19 @@ public class GCM {
 	        throw new RuntimeException("Could not get package name: " + e);
 	    }
 	}
-	
-	
+
+    /**
+     *Regresa la contraseña en forma de notificación
+     */
 	public  void peticionContrasena(){
-        //Localiza al usuario y manda esta cosa :)
+      String return_password = new Utils(activity).getPasswordBus("https://cryptic-peak-2139.herokuapp.com/bus/password?email="+UserInfo.getEmail(activity));
+        try {
+            JSONObject jsonObject = new JSONObject(return_password);
+            String password = jsonObject.getString("password");
+            new Utils(activity).pushNotification("HazmeELParo","contraseña: "+password);
+        } catch (JSONException e) {
+           e.printStackTrace();
+        }
     }
 	
 	
