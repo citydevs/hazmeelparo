@@ -140,7 +140,7 @@ public class InstructionsActivity extends Activity implements OnListenerOpenCont
 				rootView = inflater.inflate(R.layout.fragment_instructions,
 						container, false);
 				index_view += 1;
-				LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(p.x / 3, p.y / 4);
+				LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(p.x / 4, p.y / 5);
 
 				ImageView instrucciones_iv_logo = (ImageView) rootView.findViewById(R.id.instrucciones_iv_logo);
 				instrucciones_iv_logo.setLayoutParams(lp);
