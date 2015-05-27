@@ -261,7 +261,7 @@ public class HazmeElParoActivity extends Activity implements
 		
 		ActionItem addItem = new ActionItem(TOCO, "Mirada\nLasciva", getResources().getDrawable(R.drawable.ic_launcher_tocar));
         ActionItem acceptItem   = new ActionItem(VERBAL, "Agresión\nVerbal", getResources().getDrawable(R.drawable.ic_launcher_agredir));
-        ActionItem uploadItem   = new ActionItem(MIRO, "Tocamiento", getResources().getDrawable(R.drawable.ic_launcher_mirar));
+        ActionItem uploadItem   = new ActionItem(MIRO, "Tocamiento\nArrimón", getResources().getDrawable(R.drawable.ic_launcher_mirar));
         ActionItem exhibicionismotItem   = new ActionItem(EXCIVO, "Exhibición\nSexual", getResources().getDrawable(R.drawable.ic_launcher_excibir));
         uploadItem.setSticky(true);
 

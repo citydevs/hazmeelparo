@@ -2,7 +2,7 @@
 <resources>
     <string name="facebook_app_id">1505094703080117</string>
     <string name="app_name">HazmeElParo</string>
-    <string name="texto_instrucciones_uno">Hazme el paro es una aplicación para reportar casos de acoso (miradas incómodas y agresión verbal) y abuso sexual (tocamientos/arrimones y exhibición de partes) contra las mujeres en el transporte público, en tres sencillos pasos</string>
+    <string name="texto_instrucciones_uno">Hazme el paro es una aplicación para reportar casos de acoso (miradas incómodas y agresión verbal) y abuso sexual (tocamientos/arrimones y exhibición de partes) contra las mujeres en el transporte público, en tres sencillos pasos:</string>
     <string name="texto_numero_1">CONFIGURA</string>
     <string name="texto_numero_2">REPORTA</string>
     <string name="texto_numero_3">CONECTA</string>
