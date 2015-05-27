@@ -76,8 +76,8 @@ public void init(){
 	
 		et_telefono=(EditTextBackEvent)view.findViewById(R.id.registro_et_telefono);
 		et_mensaje_emergencia=(EditTextBackEvent)view.findViewById(R.id.registro_et_mensaje_emergencia);
-		((InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE)).toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
-
+/*		((InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE)).toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+*/
 		
 		btn_guardar=(Button)view.findViewById(R.id.registro_btn_guardar);
 		btn_guardar.setOnClickListener(new View.OnClickListener() {
@@ -208,9 +208,6 @@ public void init(){
 	{
 		onListenerOpenContact = listener;
 	}
-
-
-
 
 }
 

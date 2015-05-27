@@ -106,10 +106,12 @@ public class HazmeElParoActivity extends Activity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_hazme_el_paro);
 		activity = HazmeElParoActivity.this;
-		
+        getActionBar().setDisplayShowTitleEnabled(false);
+
+
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
-		mTitle = getTitle();
+		mTitle = "";
 
 		// Set up the drawer.
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
@@ -147,13 +149,14 @@ public class HazmeElParoActivity extends Activity implements
 	public void restoreActionBar() {
 		ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-		actionBar.setDisplayShowTitleEnabled(true);
+		actionBar.setDisplayShowTitleEnabled(false);
 		actionBar.setTitle("");
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		if (!mNavigationDrawerFragment.isDrawerOpen()) {
+        getActionBar().setDisplayShowTitleEnabled(false);
+        if (!mNavigationDrawerFragment.isDrawerOpen()) {
 			//getMenuInflater().inflate(R.menu.hazme_el_paro, menu);
 			restoreActionBar();
 			return true;
@@ -620,4 +623,16 @@ public class HazmeElParoActivity extends Activity implements
 
         }
     };
+
+
+    @Override
+    public void onBackPressed() {
+        if(index==3){
+            startActivity(new Intent(HazmeElParoActivity.this, HazmeElParoActivity.class));
+            finish();
+        }else{
+            super.onBackPressed();
+        }
+
+    }
 }

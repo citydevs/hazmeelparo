@@ -2,13 +2,14 @@ package com.citydevs.hazmeelparo.contact;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.citydevs.hazmeelparo.HazmeElParoActivity;
 import com.citydevs.hazmeelparo.R;
 import com.citydevs.hazmeelparo.utils.Utils;
 
@@ -41,16 +42,17 @@ public class EditTextBackEvent extends EditText {
 		 
 		  if (countStart >= 2) {
 				countStart = 0;
-				 Activity act=(Activity)context;
-					act.onBackPressed();
+				Activity act=(Activity)context;
+				act.startActivity(new Intent(act, HazmeElParoActivity.class));
+                act.finish();
 			} else {
 				countStart += 1;
 				if (countTimer) {
 					Utils.Toast((Activity)context, getResources().getString(R.string.atras_salir), Toast.LENGTH_SHORT);
 					countTimer = false;
 					handler_time.postDelayed(runnable, 10000);
-					InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-				    imm.hideSoftInputFromWindow(EditTextBackEvent.this.getWindowToken(), 0);
+					/*InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+				    imm.hideSoftInputFromWindow(EditTextBackEvent.this.getWindowToken(), 0);*/
 				}
 			}
 	    return true;  

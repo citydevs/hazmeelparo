@@ -79,7 +79,8 @@ public class Configuracion extends View {
 
     }
 
-public View getView(){
-    return view;
-}
+    public View getView(){
+        return view;
+    }
+
 }
