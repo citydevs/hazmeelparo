@@ -259,9 +259,9 @@ public class HazmeElParoActivity extends Activity implements
 	public  Dialog showDialogQuienTieneProblemas() {
 	
 		
-		ActionItem addItem = new ActionItem(TOCO, "Mirada\nLasciva", getResources().getDrawable(R.drawable.ic_launcher_tocar));
+		ActionItem addItem = new ActionItem(MIRO, "Mirada\nLasciva", getResources().getDrawable(R.drawable.ic_launcher_mirar));
         ActionItem acceptItem   = new ActionItem(VERBAL, "Agresión\nVerbal", getResources().getDrawable(R.drawable.ic_launcher_agredir));
-        ActionItem uploadItem   = new ActionItem(MIRO, "Tocamiento\nArrimón", getResources().getDrawable(R.drawable.ic_launcher_mirar));
+        ActionItem uploadItem   = new ActionItem(TOCO, "Tocamiento\nArrimón", getResources().getDrawable(R.drawable.ic_launcher_tocar));
         ActionItem exhibicionismotItem   = new ActionItem(EXCIVO, "Exhibición\nSexual", getResources().getDrawable(R.drawable.ic_launcher_excibir));
         uploadItem.setSticky(true);
 
@@ -318,10 +318,8 @@ public class HazmeElParoActivity extends Activity implements
 	                ActionItem actionItem = quickAction.getActionItem(pos);
 
 	                if (actionId == TOCO) {
-
 	                	new MensajeTask(TIPO_SELECCION_ACCION,TOCO).execute();
 	                } else if (actionId == MIRO){
-
 	                	new MensajeTask(TIPO_SELECCION_ACCION,MIRO).execute();
 	                }else if (actionId == VERBAL){
 	                	new MensajeTask(TIPO_SELECCION_ACCION,VERBAL).execute();
