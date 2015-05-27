@@ -11,7 +11,7 @@ sexual y la violencia de genero hacia las mujeres en el transporte público, en 
     <string name="mensaje_emergencia">Márcame a mi celular en cuanto puedas, por favor.</string>
     <string name="mensaje_emergencia_hint">Agrega un mensaje de emergencia</string>
     <string name="eliminar_contacto">Eliminar contacto</string>
-    <string name="instrucciones_contacto">Si en algún momento te sientes inseguro o agredido, puedes apretar el botón de REPORTA y se mandará una notificación al centro de mando y al contacto que elijas en este momento.</string>
+    <string name="instrucciones_contacto">Si en algún momento te sientes inseguro o agredido, puedes apretar el botón de REPORTA y se mandará una notificación al centro de mando del autobús y al contacto que elijas en este momento  (si es que así lo configuraste).</string>
     <string name="registro_btn_guardar">Guardar</string>
     <string name="registro_titulo">Contacto de\n emergencia</string>
     <string name="registro_selecciona_uno">Selecciona uno</string>
