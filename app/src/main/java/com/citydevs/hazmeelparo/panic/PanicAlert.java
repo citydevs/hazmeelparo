@@ -1,10 +1,15 @@
 package com.citydevs.hazmeelparo.panic;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Vibrator;
 import android.telephony.SmsManager;
+import android.widget.Toast;
+
+import com.citydevs.hazmeelparo.utils.Utils;
+
 /**
  * Clase que envia los SMS y correos al haber un mensaje de panico
  * @author mikesaurio
@@ -12,10 +17,10 @@ import android.telephony.SmsManager;
  */
 public class PanicAlert {
 
-	Context context;
+	Activity context;
 	int levelBattery = 0;
 	
-	public PanicAlert(Context context) {
+	public PanicAlert(Activity context) {
        this.context=context;
     }
 
@@ -47,9 +52,11 @@ public class PanicAlert {
 	/**
 	 * Si es por sms o correo
 	 */
-	public  void contactaAlMAndo(String mensaje) {
+	public  void contactaAlMAndo(String mensaje, String type, String lat, String lon) {
         try{
-
+                if(Utils.doHttpPostAvisoAlMando(context,"https://cryptic-peak-2139.herokuapp.com/alerts.json",type, lat, lon)){
+                    Utils.Toast(context,"Notificamos al Centro de Mando", Toast.LENGTH_LONG);
+                }
         }catch(Exception e){
             e.printStackTrace();
         }

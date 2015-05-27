@@ -50,7 +50,7 @@ sexual y la violencia de genero hacia las mujeres en el transporte público, en 
     <string name="Pagina_liked">En un momento te enviaremos la contraseña</string>
 
     <string name="texto_config">Aquí puedes modificar las opciones de como funciona la app y a quiénes reportaremos.</string>
-    <string name="llamar_a_tu_contacto">¿Te gustaría enviar un mensaje al contacto que configuraste si llegas a tener un incidente (acoso sexual o violencia de genero)?</string>
+    <string name="llamar_a_tu_contacto">¿Te gustaría configurar un contacto (persona de confianza que te pudiera apoyar) y enviarle un mensaje si llegas a tener un incidente? (acoso o abuso sexual)</string>
     <string name="llamar_a_tu_cas">¿Te gustaría llamar automaticamente a la POLICIA en caso de tener un incidente?</string>
     <string name="llamar_a_al_mando">¿Te gustaría avisarle al chofer de la unidad?, El tiene un protocolo de acción y sabrá como ayudarte.</string>
 <string name="servicio_de_localizacion_gps_off">El GPS o Wifi esta apagada</string>

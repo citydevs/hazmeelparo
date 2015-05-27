@@ -334,4 +334,52 @@ public class Utils {
                 (NotificationManager) activity.getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.notify(1, mBuilder.build());
     }
+
+
+    /**
+     * Regisro de usuario en el servidor
+     * @param act
+     * @param url
+     * @return
+     */
+    public static boolean doHttpPostAvisoAlMando(Activity act,String url, String alert_type, String lat, String lon){
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+        HttpParams myParams = new BasicHttpParams();
+        HttpConnectionParams.setConnectionTimeout(myParams, 10000);
+        HttpConnectionParams.setSoTimeout(myParams, 10000);
+        HttpClient httpclient = new DefaultHttpClient(myParams );
+        try {
+
+            JSONObject json = new JSONObject();
+            JSONObject manJson = new JSONObject();
+            manJson.put("email", UserInfo.getEmail(act));
+            manJson.put("alert_type", alert_type);
+            manJson.put("latitude", lat+"");
+            manJson.put("longitude", lon+"");
+            json.put("client",manJson);
+
+            HttpPost httppost = new HttpPost(url.toString());
+            httppost.setHeader("Content-type", "application/json");
+
+            StringEntity se = new StringEntity(json.toString());
+            se.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
+            httppost.setEntity(se);
+
+            HttpResponse response = httpclient.execute(httppost);
+            String temp = EntityUtils.toString(response.getEntity());
+            return true;
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
 }

@@ -16,7 +16,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -132,12 +131,10 @@ public class HazmeElParoActivity extends Activity implements
 		switch (number) {
 		case 1:
 			mTitle = getString(R.string.title_section1);
-            Log.d("**************", "UNO");
             index = 1;
 			break;
 		case 2:
 			mTitle = getString(R.string.title_section2);
-            Log.d("**************", "dos");
             index = 2;
 			break;
 		case 3:
@@ -151,7 +148,7 @@ public class HazmeElParoActivity extends Activity implements
 		ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		actionBar.setDisplayShowTitleEnabled(true);
-		actionBar.setTitle(mTitle);
+		actionBar.setTitle("");
 	}
 
 	@Override
@@ -259,9 +256,9 @@ public class HazmeElParoActivity extends Activity implements
 	public  Dialog showDialogQuienTieneProblemas() {
 	
 		
-		ActionItem addItem = new ActionItem(TOCO, "Mirada\nLasciba", getResources().getDrawable(R.drawable.ic_launcher_tocar));
+		ActionItem addItem = new ActionItem(TOCO, "Mirada\nLasciva", getResources().getDrawable(R.drawable.ic_launcher_tocar));
         ActionItem acceptItem   = new ActionItem(VERBAL, "Agresión\nVerbal", getResources().getDrawable(R.drawable.ic_launcher_agredir));
-        ActionItem uploadItem   = new ActionItem(MIRO, "Tocarmiento", getResources().getDrawable(R.drawable.ic_launcher_mirar));
+        ActionItem uploadItem   = new ActionItem(MIRO, "Tocamiento", getResources().getDrawable(R.drawable.ic_launcher_mirar));
         ActionItem exhibicionismotItem   = new ActionItem(EXCIVO, "Exhibición\nSexual", getResources().getDrawable(R.drawable.ic_launcher_excibir));
         uploadItem.setSticky(true);
 
@@ -619,7 +616,7 @@ public class HazmeElParoActivity extends Activity implements
             pointsLat = t.getStringArrayListExtra("latitud");
             pointsLon = t.getStringArrayListExtra("longitud");
 
-            new PanicAlert(activity).contactaAlMAndo("Mensaje de emergencia en "+pointsLat.get(pointsLat.size())+","+pointsLon.get(pointsLon.size()));
+            new PanicAlert(activity).contactaAlMAndo("Mensaje de emergencia en ",TIPO_SELECCION_ACCION+"",pointsLat.get(pointsLat.size()),pointsLon.get(pointsLon.size()));
 
         }
     };
