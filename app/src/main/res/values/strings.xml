@@ -10,7 +10,7 @@
     <string name="mensaje_emergencia">Márcame a mi celular en cuanto puedas, por favor.</string>
     <string name="mensaje_emergencia_hint">Agrega un mensaje de emergencia</string>
     <string name="eliminar_contacto">Eliminar contacto</string>
-    <string name="instrucciones_contacto">Si en algún momento te sientes inseguro o agredido, puedes apretar el botón de REPORTA y se mandará una notificación al centro de mando del autobús y al contacto que elijas en este momento  (si es que así lo configuraste).</string>
+    <string name="instrucciones_contacto">Si en algún momento te sientes insegura/inseguro o agredida/agredido, puedes apretar el botón de REPORTA y se mandará una notificación al centro de mando y al contacto que elijas en este momento (si es que así lo configuraste).</string>
     <string name="registro_btn_guardar">Guardar</string>
     <string name="registro_titulo">Contacto de\n emergencia</string>
     <string name="registro_selecciona_uno">Selecciona uno</string>
@@ -48,9 +48,9 @@
     <!-- conectar -->
     <string name="Pagina_liked">En un momento te enviaremos la contraseña</string>
 
-    <string name="texto_config">Aquí puedes modificar las opciones de como funciona la app y a quiénes reportaremos.</string>
+    <string name="texto_config">Aquí puedes modificar las opciones de cómo funciona la app y a quiénes reportaremos.</string>
     <string name="llamar_a_tu_contacto">¿Te gustaría configurar un contacto (persona de confianza que te pudiera apoyar) y enviarle un mensaje si llegas a tener un incidente? (acoso o abuso sexual)</string>
-    <string name="llamar_a_tu_cas">¿Te gustaría llamar automaticamente a la POLICIA en caso de tener un incidente?</string>
-    <string name="llamar_a_al_mando">¿Te gustaría avisarle al chofer de la unidad?, El tiene un protocolo de acción y sabrá como ayudarte.</string>
+    <string name="llamar_a_tu_cas">¿Te gustaría llamar automaticamente al Centro de Atención del Secretario de Seguridad Pública a la Ciudadania en caso de tener un incidente?</string>
+    <string name="llamar_a_al_mando">¿Te gustaría avisarle al centro de mando de la unidad?, ellos tienen un protocolo de acción y sabrán cómo ayudarte.</string>
 <string name="servicio_de_localizacion_gps_off">El GPS o Wifi esta apagada</string>
 </resources>
