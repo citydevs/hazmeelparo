@@ -13,6 +13,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.StrictMode;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -358,9 +359,9 @@ public class Utils {
             manJson.put("alert_type", alert_type);
             manJson.put("latitude", lat+"");
             manJson.put("longitude", lon+"");
-            json.put("client",manJson);
+            json.put("alert",manJson);
 
-            HttpPost httppost = new HttpPost(url.toString());
+            HttpPost httppost = new HttpPost(url);
             httppost.setHeader("Content-type", "application/json");
 
             StringEntity se = new StringEntity(json.toString());
@@ -369,7 +370,10 @@ public class Utils {
 
             HttpResponse response = httpclient.execute(httppost);
             String temp = EntityUtils.toString(response.getEntity());
-            return true;
+
+            Log.d("PRUEBAS ED", json.toString());
+			Log.d("PRUEBAS ED", temp);
+			return true;
         } catch (ClientProtocolException e) {
             e.printStackTrace();
             return false;

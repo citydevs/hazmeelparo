@@ -8,6 +8,7 @@ import android.os.Vibrator;
 import android.telephony.SmsManager;
 import android.widget.Toast;
 
+import com.citydevs.hazmeelparo.localizacion.ServicioLocalizacion;
 import com.citydevs.hazmeelparo.utils.Utils;
 
 /**
@@ -56,6 +57,10 @@ public class PanicAlert {
         try{
                 if(Utils.doHttpPostAvisoAlMando(context,"https://cryptic-peak-2139.herokuapp.com/alerts.json",type, lat, lon)){
                     Utils.Toast(context,"Notificamos al Centro de Mando", Toast.LENGTH_LONG);
+
+                    //Detener servicio
+                    Intent service = new Intent(context, ServicioLocalizacion.class);
+                    context.stopService(service);
                 }
         }catch(Exception e){
             e.printStackTrace();

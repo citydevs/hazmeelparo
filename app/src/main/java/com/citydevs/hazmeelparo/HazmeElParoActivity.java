@@ -9,6 +9,7 @@ import android.app.FragmentManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.graphics.Point;
 import android.graphics.drawable.AnimationDrawable;
@@ -16,6 +17,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -120,6 +122,9 @@ public class HazmeElParoActivity extends Activity implements
         ContactoActivity.setOnClickOpenContactListener(this);
 
         info= new Utils(this).getPreferenciasContacto();
+
+        IntentFilter filter = new IntentFilter("key");
+        getApplicationContext().registerReceiver(onBroadcast, filter);
     }
 
 	@Override
@@ -608,16 +613,12 @@ public class HazmeElParoActivity extends Activity implements
      */
 
     private BroadcastReceiver onBroadcast = new BroadcastReceiver() {
-
-
-
         @Override
-        public void onReceive(Context ctxt, Intent t) {
+        public void onReceive(Context ctxt, Intent intent) {
+            pointsLat = intent.getStringArrayListExtra("latitud");
+            pointsLon = intent.getStringArrayListExtra("longitud");
 
-            pointsLat = t.getStringArrayListExtra("latitud");
-            pointsLon = t.getStringArrayListExtra("longitud");
-
-            new PanicAlert(activity).contactaAlMAndo("Mensaje de emergencia en ",TIPO_SELECCION_ACCION+"",pointsLat.get(pointsLat.size()),pointsLon.get(pointsLon.size()));
+            new PanicAlert(activity).contactaAlMAndo("Mensaje de emergencia en ",TIPO_SELECCION_ACCION+"",pointsLat.get(pointsLat.size() - 1),pointsLon.get(pointsLon.size() - 1));
 
         }
     };

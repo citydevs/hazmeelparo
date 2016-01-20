@@ -111,10 +111,11 @@ public class ServicioLocalizacion extends Service implements Runnable {
 			latitud = Double.parseDouble(currentLocation.getLatitude() + "");
 			longitud = Double.parseDouble(currentLocation.getLongitude() + "");
 
-			pointsLat.add(latitud + "");
-			pointsLon.add(longitud + "");
-			Log.d("*****************", latitud+"");
-			
+			pointsLat.add(String.valueOf(latitud));
+			pointsLon.add(String.valueOf(longitud));
+			Log.d("*****************", String.valueOf(latitud));
+            Log.d("*****************", String.valueOf(longitud));
+
 			//mandamos la ubicacion del servicio a una actividad
 			Intent intent = new Intent("key");
 			intent.putExtra("latitud", pointsLat);
